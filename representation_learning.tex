@@ -1,0 +1,43 @@
+\chapter{Representations \& Representation Learning}
+
+\section{Motivation \& Definitions}
+
+Overview of types of representations. How do we learning representations? What training criteria/conditions result in different representations? Are certain representations better than others? In which cases and why?
+
+
+
+\section{Disentangled Representations}
+
+Define disentanglement. Why are disentangled representations helpful? Trade off between disentanglement and faithfully representing the data. How do we learn disentangled representations, while at the same time, respecting the structure of the latent space? Importance of priors.
+
+Two random variables are \textbf{independent} if their joint probability can be expressed as the product of their marginals:
+
+\begin{equation}
+	p(\mathbf{x}, \mathbf{y}) = p(\mathbf{x}) p(\mathbf{y}),
+\end{equation}
+
+\noindent and they are \textbf{conditionally independent} if their conditional joint probability can be expressed as
+
+\begin{equation}
+	p(\mathbf{x}, \mathbf{y} | \mathbf{z}) = p(\mathbf{x} | \mathbf{z}) p(\mathbf{y} | \mathbf{z}).
+\end{equation}
+
+Independence is related to covariance, but is a stronger property. Two variables that are independent have zero covariance and two variables that have non-zero covariance are dependent. Zero covariance implies that the variables have no \textit{linear} dependence. Independence implies that the variables also have no \textit{non-linear} dependence. That is, it is possible for two dependent variables to have zero covariance. 
+\\
+\\
+\noindent \textbf{Notes:}
+
+In Discovering Hidden Factors of Variation in Deep Networks (2014),  Chung et al. propose using a cross-covariance penalty term in the setting of semi-supervised learning of the form:
+
+\begin{equation}
+	C(\hat{\mathbf{y}}^{1 \dots N}, \mathbf{z}^{1 \dots N}) = \frac{1}{2} \sum_{ij} \left[ \frac{1}{N} \sum_n (\hat{y}^n_i - \bar{\hat{y}}_i) (z^n_j - \bar{z}_j) \right]^2,
+\end{equation}
+
+\noindent where $\hat{\mathbf{y}}$ is a vector of (one-hot) inferred labels and $\mathbf{z}$ is a latent representation. $N$ is the batch size.
+
+
+In Early Visual Concept Learning with Unsupervised Deep Learning (2016), Higgins et al. propose to use a regularization weight in a VAE setting to ``upweight" the amount of regularization as a means of promoting \textbf{redundancy reduction and independence} among the latent representation. They also argue for the importance of \textbf{dense sampling of the (continuous) data manifold} for disentanglement. Sparse sampling of the data manifold results in ambiguity is the manifold interpretation, requiring additional supervision for disentanglement.
+
+In Inducing Interpretable Representations with Variational Autoencoders (2016), Siddharth et al. use supervision to impose structure on part of the latent representation in a VAE.
+
+Dropout is a technique for preventing ``fragile coadaptation" between units within a representation, effectively enforcing that they represent different (independent) quantities.

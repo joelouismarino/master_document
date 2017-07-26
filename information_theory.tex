@@ -1,0 +1,99 @@
+\chapter{Information Theory}
+
+\section{Basic Concepts}
+
+\textbf{Entropy} is a measure of the uncertainty of a random variable. It tends to agree with the notion of information. Let $X$ be a random variable, with alphabet $\mathcal{X}$ and probability mass function $p(x) = \text{Pr} (X = x)$, with $x \in \mathcal{X}$. The entropy of $X$ is defined as
+
+\begin{equation}
+	H(X) = - \sum_{x \in \mathcal{X}} p(x) \log p(x).
+	\label{eq: entropy_definition}
+\end{equation}
+
+\noindent The units of entropy depend on the base of the logarithm. If the base is 2, then the units are in bits. If the base is $e$, then the units are in nats. To convert between different units of entropy, use $H_b (X) = (\log_b a) H_a (X)$. Note that entropy can be interpreted as the expectation of $-\log p(x)$. Also, entropy is non-negative: $H(X) \geq 0$.
+
+The \textbf{joint entropy} of multiple random variables is defined similarly:
+
+\begin{equation}
+	H(X, Y) = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(x, y)
+	\label{eq: joint_entropy_definition}
+\end{equation}
+
+\noindent Likewise, the \textbf{conditional entropy} is defined as
+
+\begin{align*}
+	H(Y | X) &= \sum_{x \in \mathcal{X}} p(x) H(Y | X = x) \\
+		     &= - \sum_{x \in \mathcal{X}} p(x) \sum_{y \in \mathcal{Y}} p(y | x) \log p(y | x) \\
+		     &= - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(y | x).
+	\label{eq: conditional_entropy_definition}
+\end{align*}
+
+\noindent Note that
+
+\begin{equation}
+	H(X, Y) = H(X) + H(Y | X).
+\end{equation}
+
+\noindent In words, joint entropy = individual entropy + conditional entropy. This also implies that
+
+\begin{equation}
+	H(X, Y | Z) = H(X | Z) + H(Y | X, Z).
+\end{equation}
+
+\noindent Because conditional entropy involves the conditional probability, we see that $H(Y | X) \neq H(X | Y)$. However,
+
+\begin{equation}
+	H(X) - H(X | Y) = H(Y) - H(Y | X).
+\end{equation}
+
+\textbf{Relative entropy} is a measure of the distance between two distributions. Put differently, it is the inefficiency of assuming the distribution of the data is $q(x)$ when the true distribution is $p(x)$. This is also referred to as the \textbf{Kullback-Leibler distance} or \textbf{divergence}.
+
+\begin{equation}
+	D_{KL} (p(x) || q(x)) = \sum_{x \in \mathcal{X}} p(x) \log \frac{p(x)}{q(x)} = \mathbb{E}_{x \sim p(x)} \Big[ \log \frac{p(x)}{q(x)} \Big]
+	\label{eq: KL_definition}
+\end{equation}
+
+\noindent Note that if there is a value $x \in \mathcal{X}$ such that $p(x) > 0$ and $q(x) = 0$, then $D_{KL} = \infty$. KL divergence is non-negative and is only zero when $p(x) = q(x)$. It is not symmetric, so it is not a proper distance measure.
+
+\textbf{Mutual Information} is the amount of information that one random variable contains about another random variable. In other words, it is the reduction in the uncertainty of one random variable due to knowledge of the other. It is expressed as the relative entropy between the joint distribution $p(x, y)$ and the product of the marginals $p(x) p(y)$.
+
+\begin{align*}
+	I(X; Y) &= \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log \frac{p(x, y)}{p(x) p(y)} \\
+	           &= D_{KL} (p(x, y) || p(x) p(y)) \\
+	           &= \mathbb{E}_{x, y \sim p(x, y)} \Big[ \log \frac{p(x, y}{p(x) p(y)} \Big].
+\end{align*}
+
+\noindent This can also be written as
+
+\begin{equation}
+	I(X; Y) = H(X) - H(X | Y) = H(Y) - H(Y | X).
+\end{equation}
+
+\noindent Thus, \textit{$X$ says as much about $Y$ as $Y$ says about $X$}. In words, mutual information is the amount of information in $X$ minus the amount of information in $X$ after observing $Y$ (and vice versa). This corresponds to the amount of information in $X$ that is explained by $Y$ (and, again, vice versa). If $Y$ perfectly explains $X$, then $H(X | Y) = 0$, so $I(X; Y) = H(X)$. At the other extreme, if $Y$ says nothing about $X$, then $H(X | Y) = H(X)$, so $I(X; Y) = 0$. Also, 
+
+\begin{equation}
+	I(X; Y) = H(X) + H(Y) - H(X, Y),
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+	I(X; X) = H(X) - H(X | X) = H(X).
+\end{equation}
+
+\noindent Thus, entropy can be considered as the amount of self-information.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

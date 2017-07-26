@@ -1,0 +1,90 @@
+\chapter{Programming \& Experimental Practices}
+
+This chapter contains some helpful practices for carrying out (machine learning) research projects.
+
+\section{GitHub}
+
+\href{https://github.com/}{GitHub} is an online platform for project source control. It is essential when collaborating on projects, as it allows you to meticulously track changes and manage conflicts between multiple versions of the code. But GitHub is also helpful when working alone on a project across multiple machines or if you just want to open source your code. The following are the basic commands for using GitHub:
+\newline
+
+\noindent \textbf{Clone a repository}:
+
+\begin{lstlisting}[style=python]
+git clone <repository address>
+\end{lstlisting}
+
+\noindent \textbf{Add a file to the repository}:
+
+\begin{lstlisting}[style=python]
+git add <filename>
+\end{lstlisting}
+
+\noindent \textbf{Or to add everything to the repository}:
+
+\begin{lstlisting}[style=python]
+git add .
+\end{lstlisting}
+
+or
+
+\begin{lstlisting}[style=python]
+git add -A
+\end{lstlisting}
+
+\noindent \textbf{Commit changes to the repository}:
+
+\begin{lstlisting}[style=python]
+git commit -m "<message>"
+\end{lstlisting}
+
+or
+
+\begin{lstlisting}[style=python]
+git commit
+\end{lstlisting}
+
+\noindent Note that if you run the second command, you will enter a vi interface where you can enter a multi-line message. To exit, type esc :wq
+
+\noindent \textbf{Push all committed changes to the repository}:
+
+\begin{lstlisting}[style=python]
+git push
+\end{lstlisting}
+
+\noindent \textbf{Pull the repository}:
+
+\begin{lstlisting}[style=python]
+git pull
+\end{lstlisting}
+
+\noindent \textbf{To create a new branch}:
+
+\begin{lstlisting}[style=python]
+git branch <branch name>
+\end{lstlisting}
+
+\noindent \textbf{Switch current branch}:
+
+\begin{lstlisting}[style=python]
+git checkout <branch name>
+\end{lstlisting}
+
+\noindent \textbf{Merge branch changes back into master (while currently checking out other branch)}:
+
+\begin{lstlisting}[style=python]
+git merge master
+\end{lstlisting}
+
+\noindent You can send pull requests on GitHub.com. After the branch is merged, you can delete the branch on the website.
+\newline
+
+\noindent To conclude, a good workflow practice is to (1) pull the repository at the beginning of each work session, (2) push any incremental changes at regular intervals, and (3) create new branches for any major changes to be implemented.
+
+\section{Logging}
+
+Maintaining proper records of experiments is an essential part of conducting good research. Scientific notebooks (preferably in a digital format) are often helpful for keeping high-level notes about experiments, but one must keep experimental logs to track the different experimental set-ups that have been tested and the results. These are vital for surveying your project (what set-ups work? what set-ups should we consider trying?) and eventually communicating your results. Implementing and keeping track of these logs can seem like a hassle, but they are just as important as the experimental code itself.
+
+
+
+\section{Plotting}
+
