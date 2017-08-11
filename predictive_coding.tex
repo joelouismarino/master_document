@@ -1,0 +1,74 @@
+\chapter{Predictive Coding}
+
+\section{MAP Estimation in the Static Setting}
+
+\textit{Following primarily from \cite{bogacz2017tutorial}}
+\newline
+
+Consider a problem in which the value of a single latent variable $z$ must be inferred from a single observed variable $x$. Let $g$ denote a non-linear function defining how $z$ generates $x$. Assume that the generation output (prediction) takes the form of a normal distribution, with mean $g(z)$ and variance $\sigma^2_x$:
+
+\begin{equation}
+	p (x | z) = \mathcal{N} (x; g(z), \sigma^2_x).
+\end{equation}
+
+\noindent Recall that in one dimension, a normal distribution takes the form
+
+\begin{equation}
+	\mathcal{N} (x; \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}.
+\end{equation}
+
+\noindent We also have a prior on $z$, which we also assume is a normal distribution with mean $\mu_p$ and variance $\sigma^2_p$:
+
+\begin{equation}
+	p (z) = \mathcal{N} (z; \mu_p, \sigma^2_p).
+\end{equation}
+
+In general, computing the exact posterior distribution is computationally intractable. Instead, we'll resort to variational inference to find the maximum of the posterior (MAP). Define our approximate distribution (a point mass estimate at $\phi$) as $q(z|x) = \delta (z = \phi)$, with the MAP estimate being $\hat{\phi}$. In fact, we are not really using variational inference, since the maximum of $p(z | x)$ must also be the maximum of $p(x, z)$ through the definition of conditional probability (Bayes' Rule):
+
+\begin{equation}
+p(z|x) = \frac{p(x, z)}{p(x)},
+\end{equation}
+
+\noindent since $p(x)$ does not depend on the value of $z$.
+
+We want to maximize the evidence lower bound (ELBO), $\mathcal{L}$:
+
+\begin{equation}
+	\mathcal{L} = \mathbb{E}_{z \sim q(z|x)} \left[ \log p(x, z) - \log q(z|x) \right] = \mathbb{E}_{z \sim q(z|x)} \left[ \log p(x|z) + \log p(z) - \log q(z|x) \right] 
+\end{equation}
+
+\begin{equation}
+	\mathcal{L} = \log \left( \frac{1}{\sqrt{2 \pi \sigma_x^2}} e^{-\frac{(x - g(\phi))^2}{2 \sigma_x^2}} \right) + \log \left( \frac{1}{\sqrt{2 \pi \sigma_p^2}} e^{-\frac{(\phi - \mu_p)^2}{2 \sigma_p^2}} \right)
+\end{equation}
+
+\begin{equation}
+	\mathcal{L} = -\frac{1}{2} \log ( 2 \pi \sigma_x^2 )  - \frac{(x - g(\phi))^2}{2 \sigma_x^2} - \frac{1}{2} \log ( 2 \pi \sigma_p^2 ) -\frac{(\phi - \mu_p)^2}{2 \sigma_p^2}
+\end{equation}
+
+\begin{equation}
+	\mathcal{L} = \frac{1}{2} \left( - \log ( \sigma_x^2 )  - \frac{(x - g(\phi))^2}{\sigma_x^2} - \log ( \sigma_p^2 ) -\frac{(\phi - \mu_p)^2}{\sigma_p^2} \right) + \text{const.}
+\end{equation}
+
+\noindent To find the MAP estimate, we must solve
+
+\begin{equation}
+	\hat{\phi} = \text{argmax}_\phi \mathcal{L} =  \text{argmax}_\phi \frac{1}{2} \left( - \log ( \sigma_x^2 )  - \frac{(x - g(\phi))^2}{\sigma_x^2} - \log ( \sigma_p^2 ) -\frac{(\phi - \mu_p)^2}{\sigma_p^2} \right)
+\end{equation}
+
+\noindent In order to do so, we can find the gradient of $\mathcal{L}$ w.r.t. $\phi$:
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial \phi} = \frac{x - g(\phi)}{\sigma_x^2} g^\prime (\phi) + \frac{\phi - \mu_p}{\sigma_p^2}
+\end{equation}
+
+\noindent We see that we have two terms: the first term moves the estimate toward agreement with the observation, and the second term moves the estimate toward agreement with the prior. Each of these terms are weighted by their corresponding variances. By repeatedly moving $\phi$ according to this gradient, we can hopefully arrive at the MAP estimate $\hat{\phi}$ (if the optimization surface is not highly non-convex). That is, we can define the following dynamics for $\phi$:
+
+\begin{equation}
+	\dot{\phi} = \frac{\partial \mathcal{L}}{\partial \phi}
+\end{equation}
+
+\section{Neural Implementation}
+
+This 
+
+

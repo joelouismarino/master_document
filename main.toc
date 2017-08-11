@@ -1,5 +1,6 @@
-\contentsline {chapter}{\numberline {1}Motivation}{1}{chapter.1}
+\contentsline {chapter}{\numberline {1}Intelligence}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Intelligence}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Creating Intelligence}{1}{section.1.2}
 \contentsline {chapter}{\numberline {2}Probability \& Statistics}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}Probability Basics}{2}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Definitions}{2}{subsection.2.1.1}
@@ -19,8 +20,11 @@
 \contentsline {chapter}{\numberline {7}Representations \& Representation Learning}{8}{chapter.7}
 \contentsline {section}{\numberline {7.1}Motivation \& Definitions}{8}{section.7.1}
 \contentsline {section}{\numberline {7.2}Disentangled Representations}{8}{section.7.2}
-\contentsline {chapter}{\numberline {8}Programming \& Experimental Practices}{10}{chapter.8}
-\contentsline {section}{\numberline {8.1}GitHub}{10}{section.8.1}
-\contentsline {section}{\numberline {8.2}Logging}{11}{section.8.2}
-\contentsline {section}{\numberline {8.3}Plotting}{11}{section.8.3}
-\contentsline {chapter}{\numberline {A}Appendix 1}{12}{appendix.A}
+\contentsline {chapter}{\numberline {8}Predictive Coding}{10}{chapter.8}
+\contentsline {section}{\numberline {8.1}MAP Estimation in the Static Setting}{10}{section.8.1}
+\contentsline {section}{\numberline {8.2}Neural Implementation}{11}{section.8.2}
+\contentsline {chapter}{\numberline {9}Programming \& Experimental Practices}{12}{chapter.9}
+\contentsline {section}{\numberline {9.1}GitHub}{12}{section.9.1}
+\contentsline {section}{\numberline {9.2}Logging}{13}{section.9.2}
+\contentsline {section}{\numberline {9.3}Plotting}{13}{section.9.3}
+\contentsline {chapter}{\numberline {A}Appendix 1}{14}{appendix.A}
