@@ -1,4 +1,4 @@
-\chapter{Programming \& Experimental Practices}
+\chapter{Experiment Best Practices}
 
 This chapter contains some helpful practices for carrying out (machine learning) research projects.
 
@@ -80,11 +80,39 @@ git merge master
 
 \noindent To conclude, a good workflow practice is to (1) pull the repository at the beginning of each work session, (2) push any incremental changes at regular intervals, and (3) create new branches for any major changes to be implemented.
 
-\section{Logging}
+\section{Experiment Logging}
 
-Maintaining proper records of experiments is an essential part of conducting good research. Scientific notebooks (preferably in a digital format) are often helpful for keeping high-level notes about experiments, but one must keep experimental logs to track the different experimental set-ups that have been tested and the results. These are vital for surveying your project (what set-ups work? what set-ups should we consider trying?) and eventually communicating your results. Implementing and keeping track of these logs can seem like a hassle, but they are just as important as the experimental code itself.
+Maintaining proper records of experiments is an essential part of conducting good research. Scientific notebooks (preferably in a digital format) are often helpful for keeping high-level notes about experiments and methodologies, but one must keep experimental logs to track the different experimental set-ups that have been tested and the results. These are vital for surveying your project (what set-ups work? what set-ups should we consider trying?) and eventually communicating your results. Implementing and keeping track of these logs can seem like a hassle, but they are just as important as the experimental code itself.
 
+A basic experiment logging pipeline looks something like this:
 
+\begin{enumerate}
+	\item At the beginning of the experiment, \textbf{create a log directory dedicated to this experiment}. This log directory should have a unique name. An easy choice is the date and time of the start of the experiment, which allows one to sort all of the log directories in chronological order.
+
+	\item \textbf{Copy the source files into a subdirectory in the log directory}. This is absolutely vital, as it allows one to maintain the code that led to the result of that experiment, ensuring repeatability. If you are modifying the source code while running experiments, reproducing earlier experimental conditions can be a nightmare. 
+	
+	The following code creates a new log folder for the experiment and saves the files from the current directory into a subdirectory called ``source."
+
+\begin{lstlisting}[style=python]
+import os
+from time import strftime
+
+def init_log(log_root):
+	log_dir = strftime("%b_%d_%Y_%H_%M_%S") + '/'
+	os.makedirs(log_path)
+    os.system("rsync -au --include '*/' --include '*.py' --exclude '*' . " + log_path + "source")
+\end{lstlisting}
+
+	\item In addition to maintaining source code of the experiment, it's important to \textbf{log the experimental results}. At the bare minimum, one should log train and validation performance metrics. Unless these metrics are logged, you have no means of comparing different experiments after they have run. There is an unending list of other results that can be logged, such as: outputs of the model, activations within the model, distributions of different metrics and parameters as they evolve during training, etc. The downside of logging this information is that it can slow down training and take up disc space. Often, it's best to set certain logging or visualization flags within your code. This allows you to log and understand what is happening within your model during the early experimental phase/debugging, then turn off this functionality during extended training sessions.
+	
+	\item \textbf{Save the model weights}. This one seems obvious, but it is easy to be lazy and write code in which you cannot save and load previous models. If you want to keep training your model, perform further evaluation, or just run and demonstrate it's capabilities, it is essential that you build this functionality into your code. Many basic libraries will make this easy, but it's up to you to add this to your experimental code to make this seamless.
+
+\end{enumerate}
+
+There are some upfront costs associated with setting up these practices within your code, but much of this code base can also be reused for each project. You have no excuse for not keeping proper records of your experiments!
 
 \section{Plotting}
+
+
+
 

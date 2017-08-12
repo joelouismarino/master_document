@@ -21,10 +21,12 @@
 \contentsline {section}{\numberline {7.1}Motivation \& Definitions}{8}{section.7.1}
 \contentsline {section}{\numberline {7.2}Disentangled Representations}{8}{section.7.2}
 \contentsline {chapter}{\numberline {8}Predictive Coding}{10}{chapter.8}
-\contentsline {section}{\numberline {8.1}MAP Estimation in the Static Setting}{10}{section.8.1}
-\contentsline {section}{\numberline {8.2}Neural Implementation}{11}{section.8.2}
-\contentsline {chapter}{\numberline {9}Programming \& Experimental Practices}{12}{chapter.9}
+\contentsline {section}{\numberline {8.1}Introduction}{10}{section.8.1}
+\contentsline {section}{\numberline {8.2}The Static Setting}{10}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}MAP Estimation}{10}{subsection.8.2.1}
+\contentsline {section}{\numberline {8.3}Neural Implementation}{11}{section.8.3}
+\contentsline {chapter}{\numberline {9}Experiment Best Practices}{12}{chapter.9}
 \contentsline {section}{\numberline {9.1}GitHub}{12}{section.9.1}
-\contentsline {section}{\numberline {9.2}Logging}{13}{section.9.2}
-\contentsline {section}{\numberline {9.3}Plotting}{13}{section.9.3}
-\contentsline {chapter}{\numberline {A}Appendix 1}{14}{appendix.A}
+\contentsline {section}{\numberline {9.2}Experiment Logging}{13}{section.9.2}
+\contentsline {section}{\numberline {9.3}Plotting}{14}{section.9.3}
+\contentsline {chapter}{\numberline {A}Appendix 1}{16}{appendix.A}

@@ -21,10 +21,12 @@
 \BOOKMARK [1][-]{section.7.1}{Motivation \046 Definitions}{chapter.7}% 21
 \BOOKMARK [1][-]{section.7.2}{Disentangled Representations}{chapter.7}% 22
 \BOOKMARK [0][-]{chapter.8}{Predictive Coding}{}% 23
-\BOOKMARK [1][-]{section.8.1}{MAP Estimation in the Static Setting}{chapter.8}% 24
-\BOOKMARK [1][-]{section.8.2}{Neural Implementation}{chapter.8}% 25
-\BOOKMARK [0][-]{chapter.9}{Programming \046 Experimental Practices}{}% 26
-\BOOKMARK [1][-]{section.9.1}{GitHub}{chapter.9}% 27
-\BOOKMARK [1][-]{section.9.2}{Logging}{chapter.9}% 28
-\BOOKMARK [1][-]{section.9.3}{Plotting}{chapter.9}% 29
-\BOOKMARK [0][-]{appendix.A}{Appendix 1}{}% 30
+\BOOKMARK [1][-]{section.8.1}{Introduction}{chapter.8}% 24
+\BOOKMARK [1][-]{section.8.2}{The Static Setting}{chapter.8}% 25
+\BOOKMARK [2][-]{subsection.8.2.1}{MAP Estimation}{section.8.2}% 26
+\BOOKMARK [1][-]{section.8.3}{Neural Implementation}{chapter.8}% 27
+\BOOKMARK [0][-]{chapter.9}{Experiment Best Practices}{}% 28
+\BOOKMARK [1][-]{section.9.1}{GitHub}{chapter.9}% 29
+\BOOKMARK [1][-]{section.9.2}{Experiment Logging}{chapter.9}% 30
+\BOOKMARK [1][-]{section.9.3}{Plotting}{chapter.9}% 31
+\BOOKMARK [0][-]{appendix.A}{Appendix 1}{}% 32

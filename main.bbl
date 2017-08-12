@@ -1,0 +1,38 @@
+\begin{thebibliography}{}
+
+\bibitem[Bogacz, 2017]{bogacz2017tutorial}
+Bogacz, R. (2017).
+\newblock A tutorial on the free-energy framework for modelling perception and
+  learning.
+\newblock {\em Journal of Mathematical Psychology}, 76:198--211.
+
+\bibitem[Cheung et~al., 2014]{cheung2014discovering}
+Cheung, B., Livezey, J.~A., Bansal, A.~K., and Olshausen, B.~A. (2014).
+\newblock Discovering hidden factors of variation in deep networks.
+\newblock {\em arXiv preprint arXiv:1412.6583}.
+
+\bibitem[Higgins et~al., 2016]{higgins2016early}
+Higgins, I., Matthey, L., Glorot, X., Pal, A., Uria, B., Blundell, C., Mohamed,
+  S., and Lerchner, A. (2016).
+\newblock Early visual concept learning with unsupervised deep learning.
+\newblock {\em arXiv preprint arXiv:1606.05579}.
+
+\bibitem[Rao and Ballard, 1999]{rao1999predictive}
+Rao, R.~P. and Ballard, D.~H. (1999).
+\newblock Predictive coding in the visual cortex: a functional interpretation
+  of some extra-classical receptive-field effects.
+\newblock {\em Nature neuroscience}, 2(1):79--87.
+
+\bibitem[Siddharth et~al., 2016]{siddharth2016inducing}
+Siddharth, N., Paige, B., Desmaison, A., de~Meent, V., Wood, F., Goodman,
+  N.~D., Kohli, P., Torr, P.~H., et~al. (2016).
+\newblock Inducing interpretable representations with variational autoencoders.
+\newblock {\em arXiv preprint arXiv:1611.07492}.
+
+\bibitem[Srivastava et~al., 2014]{srivastava2014dropout}
+Srivastava, N., Hinton, G.~E., Krizhevsky, A., Sutskever, I., and
+  Salakhutdinov, R. (2014).
+\newblock Dropout: a simple way to prevent neural networks from overfitting.
+\newblock {\em Journal of machine learning research}, 15(1):1929--1958.
+
+\end{thebibliography}

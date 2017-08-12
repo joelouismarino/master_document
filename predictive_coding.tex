@@ -1,8 +1,18 @@
 \chapter{Predictive Coding}
 
-\section{MAP Estimation in the Static Setting}
+\section{Introduction}
 
-\textit{Following primarily from \cite{bogacz2017tutorial}}
+The area of predictive coding, in its current form, was introduced by \cite{rao1999predictive}. This theoretical neuroscience model posited that sensory processing is primarily a filtering operation, in which latent quantities underlying the environment are estimated according to their agreement with the observed input as well as prior beliefs about these quantities. This offered an explanation for ``extra-classical" receptive field effects in visual processing, in which stimuli outside the receptive field of a particular cortical neuron are able to affect that neuron's activity. This was explained as the result top-down prior beliefs.
+
+\textit{TODO: mention other early work before Rao and Ballard with similar ideas}
+
+Predictive coding claims that sensory processing, i.e. perception, is fundamentally about constructing a generative model of the input sensory signal. To perform \textit{inference} in this model, that is, to perceive, the model uses its current estimate of the latent variables underlying the environment to generate reconstructions or predictions of the input. Using the residual (error) from this reconstruction or prediction, along with residuals from prior beliefs, the model updates its estimate of these latent variables. \textit{Learning} then corresponds to updating the parameters of the generative model to improve these residuals.
+
+\section{The Static Setting}
+
+\subsection{MAP Estimation}
+
+\textit{Following \cite{bogacz2017tutorial}}
 \newline
 
 Consider a problem in which the value of a single latent variable $z$ must be inferred from a single observed variable $x$. Let $g$ denote a non-linear function defining how $z$ generates $x$. Assume that the generation output (prediction) takes the form of a normal distribution, with mean $g(z)$ and variance $\sigma^2_x$:
