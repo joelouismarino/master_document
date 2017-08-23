@@ -1,38 +1,125 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 
-\bibitem[Bogacz, 2017]{bogacz2017tutorial}
-Bogacz, R. (2017).
-\newblock A tutorial on the free-energy framework for modelling perception and
-  learning.
-\newblock {\em Journal of Mathematical Psychology}, 76:198--211.
+\bibitem{cheung2014discovering}
+B.~Cheung, J.~A. Livezey, A.~K. Bansal, and B.~A. Olshausen, ``Discovering
+  hidden factors of variation in deep networks,'' {\em arXiv preprint
+  arXiv:1412.6583}, 2014.
 
-\bibitem[Cheung et~al., 2014]{cheung2014discovering}
-Cheung, B., Livezey, J.~A., Bansal, A.~K., and Olshausen, B.~A. (2014).
-\newblock Discovering hidden factors of variation in deep networks.
-\newblock {\em arXiv preprint arXiv:1412.6583}.
+\bibitem{higgins2016early}
+I.~Higgins, L.~Matthey, X.~Glorot, A.~Pal, B.~Uria, C.~Blundell, S.~Mohamed,
+  and A.~Lerchner, ``Early visual concept learning with unsupervised deep
+  learning,'' {\em arXiv preprint arXiv:1606.05579}, 2016.
 
-\bibitem[Higgins et~al., 2016]{higgins2016early}
-Higgins, I., Matthey, L., Glorot, X., Pal, A., Uria, B., Blundell, C., Mohamed,
-  S., and Lerchner, A. (2016).
-\newblock Early visual concept learning with unsupervised deep learning.
-\newblock {\em arXiv preprint arXiv:1606.05579}.
+\bibitem{siddharth2016inducing}
+N.~Siddharth, B.~Paige, A.~Desmaison, V.~de~Meent, F.~Wood, N.~D. Goodman,
+  P.~Kohli, P.~H. Torr, {\em et~al.}, ``Inducing interpretable representations
+  with variational autoencoders,'' {\em arXiv preprint arXiv:1611.07492}, 2016.
 
-\bibitem[Rao and Ballard, 1999]{rao1999predictive}
-Rao, R.~P. and Ballard, D.~H. (1999).
-\newblock Predictive coding in the visual cortex: a functional interpretation
-  of some extra-classical receptive-field effects.
-\newblock {\em Nature neuroscience}, 2(1):79--87.
+\bibitem{srivastava2014dropout}
+N.~Srivastava, G.~E. Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
+  ``Dropout: a simple way to prevent neural networks from overfitting.,'' {\em
+  Journal of machine learning research}, vol.~15, no.~1, pp.~1929--1958, 2014.
 
-\bibitem[Siddharth et~al., 2016]{siddharth2016inducing}
-Siddharth, N., Paige, B., Desmaison, A., de~Meent, V., Wood, F., Goodman,
-  N.~D., Kohli, P., Torr, P.~H., et~al. (2016).
-\newblock Inducing interpretable representations with variational autoencoders.
-\newblock {\em arXiv preprint arXiv:1611.07492}.
+\bibitem{sutton1998reinforcement}
+R.~S. Sutton and A.~G. Barto, {\em Reinforcement learning: An introduction},
+  vol.~1.
+\newblock MIT press Cambridge, 1998.
 
-\bibitem[Srivastava et~al., 2014]{srivastava2014dropout}
-Srivastava, N., Hinton, G.~E., Krizhevsky, A., Sutskever, I., and
-  Salakhutdinov, R. (2014).
-\newblock Dropout: a simple way to prevent neural networks from overfitting.
-\newblock {\em Journal of machine learning research}, 15(1):1929--1958.
+\bibitem{barto2004intrinsically}
+A.~G. Barto, S.~Singh, and N.~Chentanez, ``Intrinsically motivated learning of
+  hierarchical collections of skills,'' in {\em Proceedings of the 3rd
+  International Conference on Development and Learning}, pp.~112--19, 2004.
+
+\bibitem{mohamed2015variational}
+S.~Mohamed and D.~J. Rezende, ``Variational information maximisation for
+  intrinsically motivated reinforcement learning,'' in {\em Advances in neural
+  information processing systems}, pp.~2125--2133, 2015.
+
+\bibitem{rao1999predictive}
+R.~P. Rao and D.~H. Ballard, ``Predictive coding in the visual cortex: a
+  functional interpretation of some extra-classical receptive-field effects,''
+  {\em Nature neuroscience}, vol.~2, no.~1, pp.~79--87, 1999.
+
+\bibitem{von1867handbuch}
+H.~Von~Helmholtz, {\em Handbuch der physiologischen Optik}, vol.~9.
+\newblock Voss, 1867.
+
+\bibitem{friston2002functional}
+K.~Friston, ``Functional integration and inference in the brain,'' {\em
+  Progress in neurobiology}, vol.~68, no.~2, pp.~113--143, 2002.
+
+\bibitem{friston2003learning}
+K.~Friston, ``Learning and inference in the brain,'' {\em Neural Networks},
+  vol.~16, no.~9, pp.~1325--1352, 2003.
+
+\bibitem{friston2005theory}
+K.~Friston, ``A theory of cortical responses,'' {\em Philosophical Transactions
+  of the Royal Society of London B: Biological Sciences}, vol.~360, no.~1456,
+  pp.~815--836, 2005.
+
+\bibitem{friston2003dynamic}
+K.~J. Friston, L.~Harrison, and W.~Penny, ``Dynamic causal modelling,'' {\em
+  Neuroimage}, vol.~19, no.~4, pp.~1273--1302, 2003.
+
+\bibitem{friston2008variational}
+K.~J. Friston, ``Variational filtering,'' {\em NeuroImage}, vol.~41, no.~3,
+  pp.~747--766, 2008.
+
+\bibitem{friston2008DEM}
+K.~J. Friston, N.~Trujillo-Barreto, and J.~Daunizeau, ``Dem: a variational
+  treatment of dynamic systems,'' {\em Neuroimage}, vol.~41, no.~3,
+  pp.~849--885, 2008.
+
+\bibitem{friston2010generalised}
+K.~Friston, K.~Stephan, B.~Li, and J.~Daunizeau, ``Generalised filtering,''
+  {\em Mathematical Problems in Engineering}, vol.~2010, 2010.
+
+\bibitem{feldman2010attention}
+H.~Feldman and K.~J. Friston, ``Attention, uncertainty, and free-energy,'' {\em
+  Frontiers in human neuroscience}, vol.~4, 2010.
+
+\bibitem{friston2011action}
+K.~Friston, J.~Mattout, and J.~Kilner, ``Action understanding and active
+  inference,'' {\em Biological cybernetics}, vol.~104, no.~1, pp.~137--160,
+  2011.
+
+\bibitem{friston2013anatomy}
+K.~Friston, P.~Schwartenbeck, T.~FitzGerald, M.~Moutoussis, T.~Behrens, and
+  R.~J. Dolan, ``The anatomy of choice: active inference and agency,'' {\em
+  Frontiers in human neuroscience}, vol.~7, 2013.
+
+\bibitem{friston2015active}
+K.~Friston, F.~Rigoli, D.~Ognibene, C.~Mathys, T.~Fitzgerald, and G.~Pezzulo,
+  ``Active inference and epistemic value,'' {\em Cognitive neuroscience},
+  vol.~6, no.~4, pp.~187--214, 2015.
+
+\bibitem{friston2016active_process}
+K.~Friston, T.~FitzGerald, F.~Rigoli, P.~Schwartenbeck, and G.~Pezzulo,
+  ``Active inference: A process theory,'' {\em Neural computation}, 2016.
+
+\bibitem{friston2016active}
+K.~Friston, T.~FitzGerald, F.~Rigoli, P.~Schwartenbeck, G.~Pezzulo, {\em
+  et~al.}, ``Active inference and learning,'' {\em Neuroscience \&
+  Biobehavioral Reviews}, vol.~68, pp.~862--879, 2016.
+
+\bibitem{bastos2012canonical}
+A.~M. Bastos, W.~M. Usrey, R.~A. Adams, G.~R. Mangun, P.~Fries, and K.~J.
+  Friston, ``Canonical microcircuits for predictive coding,'' {\em Neuron},
+  vol.~76, no.~4, pp.~695--711, 2012.
+
+\bibitem{kanai2015cerebral}
+R.~Kanai, Y.~Komura, S.~Shipp, and K.~Friston, ``Cerebral hierarchies:
+  predictive processing, precision and the pulvinar,'' {\em Phil. Trans. R.
+  Soc. B}, vol.~370, no.~1668, p.~20140169, 2015.
+
+\bibitem{bogacz2017tutorial}
+R.~Bogacz, ``A tutorial on the free-energy framework for modelling perception
+  and learning,'' {\em Journal of Mathematical Psychology}, vol.~76,
+  pp.~198--211, 2017.
+
+\bibitem{whittington2017approximation}
+J.~C. Whittington and R.~Bogacz, ``An approximation of the error
+  backpropagation algorithm in a predictive coding network with local hebbian
+  synaptic plasticity,'' {\em Neural computation}, 2017.
 
 \end{thebibliography}

@@ -89,7 +89,7 @@ A basic experiment logging pipeline looks something like this:
 \begin{enumerate}
 	\item At the beginning of the experiment, \textbf{create a log directory dedicated to this experiment}. This log directory should have a unique name. An easy choice is the date and time of the start of the experiment, which allows one to sort all of the log directories in chronological order.
 
-	\item \textbf{Copy the source files into a subdirectory in the log directory}. This is absolutely vital, as it allows one to maintain the code that led to the result of that experiment, ensuring repeatability. If you are modifying the source code while running experiments, reproducing earlier experimental conditions can be a nightmare. 
+	\item \textbf{Copy the source code into a subdirectory in the log directory}. This is absolutely vital, as it allows one to maintain the code that led to the result of that experiment, ensuring repeatability. If you are modifying the source code while running experiments, reproducing earlier experimental conditions can be a nightmare. 
 	
 	The following code creates a new log folder for the experiment and saves the files from the current directory into a subdirectory called ``source."
 

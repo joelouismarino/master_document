@@ -1,0 +1,67 @@
+\chapter{Reinforcement Learning}
+
+\section{The RL Problem Setting}
+
+\subsection{The Basics}
+
+Reinforcement learning involves an \textit{agent} interacting within an \textit{environment}. The agent selects actions, and the environment responds with new states and rewards. Sutton \& Barto \cite{sutton1998reinforcement} identify four additional sub-elements to reinforcement learning systems:
+\begin{itemize}
+	\item a \textit{policy},
+	\item a \textit{reward signal},
+	\item a \textit{value function},
+	\item and, optionally, a \textit{model} of the environment.
+\end{itemize}
+\noindent A \textit{policy} defines a mapping from (perceived) states to output actions to be taken. A \textit{reward signal} is a real-valued number that the agent receives from the environment. The agent tries to maximize its total reward, which is referred to as value. The \textit{value function} specifies the expected value, starting from a particular state. Thus, it is ultimately value that we try to optimize. Finally, a \textit{model} of the environment is the agent's simulation of the environment, allowing the agent to plan actions and predict outcomes (states, rewards, etc.).
+
+The boundary between agent and environment is often not clearly defined. Sutton \& Barto place the agent-environment boundary at the limit of the agent's control, not at the physical boundary. For instance, the limbs of the agent, its internal energy reserves, and even the reward mechanism are considered to be part of the environment, since the agent does not have absolute control over these aspects.
+
+We assume that time unfolds in a series of discrete time-steps, $t = 1, 2, 3, \dots$ At each time step, the agent is in some state $S_t \in \mathcal{S}$ and chooses some action $A_t \in \mathcal{A} (S_t)$. Here, $\mathcal{S}$ denotes the space of possible states and $\mathcal{A} (S_t)$ denotes the space of possible actions from state $S_t$. The action is chosen based on the agent's policy $\pi_t (a | s)$, which probabilistically maps states $S_t = s$ to actions $A_t = a$. At the next time step, the agent receives a real-valued reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and arrives in the next state, $S_{t+1}$.
+
+The \textit{return}, $G_t$, is the (discounted) sum of rewards starting at time $t$. For \textit{episodic tasks}, in which the sequence has a finite length, $T$, this is defined as 
+
+\begin{equation}
+G_t \triangleq R_{t+1} + R_{t+2} + \dots + R_T = \sum_{k=0}^{T - t - 1} R_{t + k + 1},
+\end{equation}
+
+\noindent However, for \textit{continuing tasks}, in which the time sequence length can be infinite, we include a \textit{discount rate}, $\gamma \in [0, 1]$, to prevent the return from going to infinity:
+
+\begin{equation}
+G_t \triangleq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1}.
+\end{equation}
+
+The \textit{value function} or \textit{state-value function}, $v_\pi (s)$, is defined as the expected return from being in state $s$ when using policy $\pi$:
+
+\begin{equation}
+	v_\pi (s) \triangleq \mathbb{E}_\pi \left[ G_t | S_t = s \right] = \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1} | S_t = s \right].
+\end{equation}
+
+\noindent Note that here we are assuming that the task respects the Markov property; the current state, along with the policy, contains all of the information to determine the value function. We can also define an \textit{action-value function}, $q_\pi (s, a)$, which specifies expected returns for each action $a$ taken from state $s$ using policy $\pi$:
+
+\begin{equation}
+	q_\pi (s, a) \triangleq \mathbb{E}_\pi \left[ G_t | S_t = s, A_t = a \right] = \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1} | S_t = s, A_t = a \right].
+\end{equation}
+
+Using the definition of the value function, we can derive a recursive relationship known as the Bellman equation:
+
+
+
+\subsection{Summary of Notation}
+
+
+\section{Value Based Methods}
+
+\subsection{Q Learning}
+
+\subsection{TD Learning}
+
+
+\section{Policy Gradient Methods}
+
+
+\section{Intrinsically Motivated RL}
+
+\cite{barto2004intrinsically} use internal motivation, along with an option framework, to learn a collection of hierarchical skills.
+\newline
+
+\noindent \cite{mohamed2015variational} use empowerment.
+

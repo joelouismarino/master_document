@@ -17,16 +17,32 @@
 \contentsline {subsection}{\numberline {5.1.2}Multi-Layer Perceptrons}{6}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Backpropagation}{6}{subsection.5.1.3}
 \contentsline {chapter}{\numberline {6}Graphical Models}{7}{chapter.6}
-\contentsline {chapter}{\numberline {7}Representations \& Representation Learning}{8}{chapter.7}
-\contentsline {section}{\numberline {7.1}Motivation \& Definitions}{8}{section.7.1}
-\contentsline {section}{\numberline {7.2}Disentangled Representations}{8}{section.7.2}
-\contentsline {chapter}{\numberline {8}Predictive Coding}{10}{chapter.8}
-\contentsline {section}{\numberline {8.1}Introduction}{10}{section.8.1}
-\contentsline {section}{\numberline {8.2}The Static Setting}{10}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}MAP Estimation}{10}{subsection.8.2.1}
-\contentsline {section}{\numberline {8.3}Neural Implementation}{11}{section.8.3}
-\contentsline {chapter}{\numberline {9}Experiment Best Practices}{12}{chapter.9}
-\contentsline {section}{\numberline {9.1}GitHub}{12}{section.9.1}
-\contentsline {section}{\numberline {9.2}Experiment Logging}{13}{section.9.2}
-\contentsline {section}{\numberline {9.3}Plotting}{14}{section.9.3}
-\contentsline {chapter}{\numberline {A}Appendix 1}{16}{appendix.A}
+\contentsline {section}{\numberline {6.1}Latent Variable Models}{7}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Temporal Latent Variable Models}{7}{subsection.6.1.1}
+\contentsline {chapter}{\numberline {7}Representations \& Representation Learning}{9}{chapter.7}
+\contentsline {section}{\numberline {7.1}Motivation \& Definitions}{9}{section.7.1}
+\contentsline {section}{\numberline {7.2}Disentangled Representations}{9}{section.7.2}
+\contentsline {chapter}{\numberline {8}Reinforcement Learning}{11}{chapter.8}
+\contentsline {section}{\numberline {8.1}The RL Problem Setting}{11}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}The Basics}{11}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Summary of Notation}{12}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Value Based Methods}{12}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Q Learning}{12}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}TD Learning}{12}{subsection.8.2.2}
+\contentsline {section}{\numberline {8.3}Policy Gradient Methods}{12}{section.8.3}
+\contentsline {section}{\numberline {8.4}Intrinsically Motivated RL}{12}{section.8.4}
+\contentsline {chapter}{\numberline {9}Predictive Coding}{13}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introduction}{13}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Literature Summary}{13}{subsection.9.1.1}
+\contentsline {section}{\numberline {9.2}The Static Setting}{14}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}MAP State Estimation in a One--Level Model}{14}{subsection.9.2.1}
+\contentsline {section}{\numberline {9.3}The Dynamic Setting}{16}{section.9.3}
+\contentsline {section}{\numberline {9.4}Attention}{16}{section.9.4}
+\contentsline {section}{\numberline {9.5}Active Inference}{16}{section.9.5}
+\contentsline {section}{\numberline {9.6}Neural Implementation}{16}{section.9.6}
+\contentsline {subsection}{\numberline {9.6.1}Correspondence with Cortical Mircrocircuits}{16}{subsection.9.6.1}
+\contentsline {chapter}{\numberline {10}Experiment Best Practices}{17}{chapter.10}
+\contentsline {section}{\numberline {10.1}GitHub}{17}{section.10.1}
+\contentsline {section}{\numberline {10.2}Experiment Logging}{18}{section.10.2}
+\contentsline {section}{\numberline {10.3}Plotting}{19}{section.10.3}
+\contentsline {chapter}{\numberline {A}Appendix 1}{22}{appendix.A}
