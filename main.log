@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  22 AUG 2017 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 AUG 2017 23:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1200,8 +1200,11 @@ LaTeX Warning: Unused global option(s):
     [fancychapters].
 
 (./main.aux (./motivation.aux) (./probability.aux) (./information_theory.aux)
-(./neuroscience.aux) (./neural_networks.aux) (./graphical_models.aux)
-(./representation_learning.aux) (./reinforcement_learning.aux)
+(./neuroscience.aux) (./neural_networks.aux) (./graphical_models.aux
+
+LaTeX Warning: Label `fig: full_temporal_model' multiply defined.
+
+) (./representation_learning.aux) (./reinforcement_learning.aux)
 (./predictive_coding.aux) (./programming.aux) (./appendix.aux))
 \openout1 = `main.aux'.
 
@@ -1389,33 +1392,55 @@ Chapter 5.
 
  (./graphical_models.tex
 Chapter 6.
+[7
 
-<images/graphical_models/full_temporal_model.png, id=309, 744.7825pt x 479.7925
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
+
+<images/graphical_models/normalizing_flows.png, id=346, 293.095pt x 82.3075pt>
+File: images/graphical_models/normalizing_flows.png Graphic file (type png)
+
+<use images/graphical_models/normalizing_flows.png>
+Package pdftex.def Info: images/graphical_models/normalizing_flows.png used on 
+input line 106.
+(pdftex.def)             Requested size: 260.17464pt x 73.06253pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+<images/graphical_models/full_temporal_model.png, id=370, 744.7825pt x 479.7925
 pt>
 File: images/graphical_models/full_temporal_model.png Graphic file (type png)
  <use images/graphical_models/full_temporal_model.png>
 Package pdftex.def Info: images/graphical_models/full_temporal_model.png used o
-n input line 17.
+n input line 150.
 (pdftex.def)             Requested size: 216.81pt x 139.67068pt.
- [7
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- <./images/graphical_models/full_temporal_model.png>]) [8]
+[9 <./images/graphical_models/normalizing_flows.png>]) [10 <./images/graphical_
+models/full_temporal_model.png>]
 \openout2 = `representation_learning.aux'.
 
  (./representation_learning.tex
 Chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+Underfull \hbox (badness 10000) in paragraph at lines 27--31
 
  []
 
-[9
+[11
 
 
 
-]) [10]
+]) [12]
 \openout2 = `reinforcement_learning.aux'.
 
  (./reinforcement_learning.tex
@@ -1426,7 +1451,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
- [11
+ [13
 
 
 
@@ -1435,7 +1460,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
 
-) [12]
+) [14]
 \openout2 = `predictive_coding.aux'.
 
  (./predictive_coding.tex
@@ -1470,7 +1495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-[13
+[15
 
 
 
@@ -1485,7 +1510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--34
  []
 
 
-<images/predictive_coding/simple_latent_graphical_model.png, id=398, 185.69376p
+<images/predictive_coding/simple_latent_graphical_model.png, id=464, 185.69376p
 t x 389.455pt>
 File: images/predictive_coding/simple_latent_graphical_model.png Graphic file (
 type png)
@@ -1494,7 +1519,7 @@ type png)
 Package pdftex.def Info: images/predictive_coding/simple_latent_graphical_model
 .png used on input line 43.
 (pdftex.def)             Requested size: 65.04034pt x 136.41231pt.
- [14 <./images/predictive_coding/simple_latent_graphical_model.png>] [15]
+ [16 <./images/predictive_coding/simple_latent_graphical_model.png>] [17]
 Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
@@ -1514,7 +1539,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
  []
 
-) [16]
+) [18]
 \openout2 = `programming.aux'.
 
  (./programming.tex
@@ -1526,7 +1551,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
-) [17
+) [19
 
 
 
@@ -1537,15 +1562,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--80
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 97.
-[18]) [19] (./main.bbl [20
+[20]) [21] (./main.bbl [22
 
 
-]) [21]
+]) [23]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 Appendix A.
-) [22
+) [24
 
 
 ]
@@ -1559,19 +1584,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 551D004C953C815FD91F0D6DA02A0861;3116.
+(rerunfilecheck)             Checksum: 294AC90CA51AA2A383D6E49523180CD2;3406.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 107.
  ) 
 Here is how much of TeX's memory you used:
- 31450 strings out of 493089
- 642473 string characters out of 6134842
- 743330 words of memory out of 5000000
- 34187 multiletter control sequences out of 15000+600000
- 20348 words of font info for 75 fonts, out of 8000000 for 9000
+ 31503 strings out of 493089
+ 643545 string characters out of 6134842
+ 744510 words of memory out of 5000000
+ 34211 multiletter control sequences out of 15000+600000
+ 20693 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,12n,71p,10361b,1216s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -1595,14 +1620,15 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (25 pages, 431795 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (27 pages, 564293 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 571 compressed objects within 6 object streams
- 171 named destinations out of 1000 (max. 500000)
- 407 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 635 compressed objects within 7 object streams
+ 198 named destinations out of 1000 (max. 500000)
+ 444 words of extra memory for PDF output out of 10000 (max. 10000000)
 

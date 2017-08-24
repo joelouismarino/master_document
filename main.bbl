@@ -1,5 +1,19 @@
 \begin{thebibliography}{10}
 
+\bibitem{rezende2015variational}
+D.~J. Rezende and S.~Mohamed, ``Variational inference with normalizing flows,''
+  {\em arXiv preprint arXiv:1505.05770}, 2015.
+
+\bibitem{kingma2016improved}
+D.~P. Kingma, T.~Salimans, R.~Jozefowicz, X.~Chen, I.~Sutskever, and
+  M.~Welling, ``Improved variational inference with inverse autoregressive
+  flow,'' 2016.
+
+\bibitem{bengio2013representation}
+Y.~Bengio, A.~Courville, and P.~Vincent, ``Representation learning: A review
+  and new perspectives,'' {\em IEEE transactions on pattern analysis and
+  machine intelligence}, vol.~35, no.~8, pp.~1798--1828, 2013.
+
 \bibitem{cheung2014discovering}
 B.~Cheung, J.~A. Livezey, A.~K. Bansal, and B.~A. Olshausen, ``Discovering
   hidden factors of variation in deep networks,'' {\em arXiv preprint
