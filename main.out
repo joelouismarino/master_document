@@ -23,30 +23,35 @@
 \BOOKMARK [2][-]{subsection.6.2.2}{Normalizing Flows}{section.6.2}% 23
 \BOOKMARK [1][-]{section.6.3}{Latent Variable Models}{chapter.6}% 24
 \BOOKMARK [2][-]{subsection.6.3.1}{Temporal Latent Variable Models}{section.6.3}% 25
-\BOOKMARK [0][-]{chapter.7}{Representations \046 Representation Learning}{}% 26
+\BOOKMARK [0][-]{chapter.7}{Representation Learning}{}% 26
 \BOOKMARK [1][-]{section.7.1}{Motivation \046 Definitions}{chapter.7}% 27
-\BOOKMARK [1][-]{section.7.2}{Disentangled Representations}{chapter.7}% 28
-\BOOKMARK [0][-]{chapter.8}{Reinforcement Learning}{}% 29
-\BOOKMARK [1][-]{section.8.1}{The RL Problem Setting}{chapter.8}% 30
-\BOOKMARK [2][-]{subsection.8.1.1}{The Basics}{section.8.1}% 31
-\BOOKMARK [2][-]{subsection.8.1.2}{Summary of Notation}{section.8.1}% 32
-\BOOKMARK [1][-]{section.8.2}{Value Based Methods}{chapter.8}% 33
-\BOOKMARK [2][-]{subsection.8.2.1}{Q Learning}{section.8.2}% 34
-\BOOKMARK [2][-]{subsection.8.2.2}{TD Learning}{section.8.2}% 35
-\BOOKMARK [1][-]{section.8.3}{Policy Gradient Methods}{chapter.8}% 36
-\BOOKMARK [1][-]{section.8.4}{Intrinsically Motivated RL}{chapter.8}% 37
-\BOOKMARK [0][-]{chapter.9}{Predictive Coding}{}% 38
-\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter.9}% 39
-\BOOKMARK [2][-]{subsection.9.1.1}{Literature Summary}{section.9.1}% 40
-\BOOKMARK [1][-]{section.9.2}{The Static Setting}{chapter.9}% 41
-\BOOKMARK [2][-]{subsection.9.2.1}{MAP State Estimation in a One\205Level Model}{section.9.2}% 42
-\BOOKMARK [1][-]{section.9.3}{The Dynamic Setting}{chapter.9}% 43
-\BOOKMARK [1][-]{section.9.4}{Attention}{chapter.9}% 44
-\BOOKMARK [1][-]{section.9.5}{Active Inference}{chapter.9}% 45
-\BOOKMARK [1][-]{section.9.6}{Neural Implementation}{chapter.9}% 46
-\BOOKMARK [2][-]{subsection.9.6.1}{Correspondence with Cortical Mircrocircuits}{section.9.6}% 47
-\BOOKMARK [0][-]{chapter.10}{Experiment Best Practices}{}% 48
-\BOOKMARK [1][-]{section.10.1}{GitHub}{chapter.10}% 49
-\BOOKMARK [1][-]{section.10.2}{Experiment Logging}{chapter.10}% 50
-\BOOKMARK [1][-]{section.10.3}{Plotting}{chapter.10}% 51
-\BOOKMARK [0][-]{appendix.A}{Appendix 1}{}% 52
+\BOOKMARK [1][-]{section.7.2}{Representation Learning Without a Task}{chapter.7}% 28
+\BOOKMARK [1][-]{section.7.3}{Disentangled Representations}{chapter.7}% 29
+\BOOKMARK [0][-]{chapter.8}{Reinforcement Learning}{}% 30
+\BOOKMARK [1][-]{section.8.1}{The RL Problem Setting}{chapter.8}% 31
+\BOOKMARK [2][-]{subsection.8.1.1}{The Basics}{section.8.1}% 32
+\BOOKMARK [2][-]{subsection.8.1.2}{Summary of Notation}{section.8.1}% 33
+\BOOKMARK [1][-]{section.8.2}{Value Based Methods}{chapter.8}% 34
+\BOOKMARK [2][-]{subsection.8.2.1}{Multi-Armed Bandits}{section.8.2}% 35
+\BOOKMARK [2][-]{subsection.8.2.2}{Dynamic Programming Methods}{section.8.2}% 36
+\BOOKMARK [2][-]{subsection.8.2.3}{Monte Carlo Methods}{section.8.2}% 37
+\BOOKMARK [2][-]{subsection.8.2.4}{TD Learning}{section.8.2}% 38
+\BOOKMARK [1][-]{section.8.3}{Policy Gradient Methods}{chapter.8}% 39
+\BOOKMARK [2][-]{subsection.8.3.1}{REINFORCE}{section.8.3}% 40
+\BOOKMARK [2][-]{subsection.8.3.2}{Actor-Critic Methods}{section.8.3}% 41
+\BOOKMARK [1][-]{section.8.4}{Intrinsically Motivated RL}{chapter.8}% 42
+\BOOKMARK [0][-]{chapter.9}{Predictive Coding}{}% 43
+\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter.9}% 44
+\BOOKMARK [2][-]{subsection.9.1.1}{Literature Summary}{section.9.1}% 45
+\BOOKMARK [1][-]{section.9.2}{The Static Setting}{chapter.9}% 46
+\BOOKMARK [2][-]{subsection.9.2.1}{MAP State Estimation in a One\205Level Model}{section.9.2}% 47
+\BOOKMARK [1][-]{section.9.3}{The Dynamic Setting}{chapter.9}% 48
+\BOOKMARK [1][-]{section.9.4}{Attention}{chapter.9}% 49
+\BOOKMARK [1][-]{section.9.5}{Active Inference}{chapter.9}% 50
+\BOOKMARK [1][-]{section.9.6}{Neural Implementation}{chapter.9}% 51
+\BOOKMARK [2][-]{subsection.9.6.1}{Correspondence with Cortical Mircrocircuits}{section.9.6}% 52
+\BOOKMARK [0][-]{chapter.10}{Experiment Best Practices}{}% 53
+\BOOKMARK [1][-]{section.10.1}{GitHub}{chapter.10}% 54
+\BOOKMARK [1][-]{section.10.2}{Experiment Logging}{chapter.10}% 55
+\BOOKMARK [1][-]{section.10.3}{Plotting}{chapter.10}% 56
+\BOOKMARK [0][-]{appendix.A}{Appendix 1}{}% 57

@@ -123,13 +123,34 @@ To parameterize the mappings, \cite{rezende2015variational} use transformations 
 	\label{eq: normalizing flows transformation}
 \end{equation}
 
-\noindent where $\mathbf{u}$, $\mathbf{w}$, and $b$ are learned parameters and $h(\cdot)$ is a non-linear function. The determinant of the Jacobian of this transformation is
+\noindent where $\mathbf{u}$, $\mathbf{w}$, and $b$ are learned parameters and $h(\cdot)$ is a non-linear function. This class of normalizing flows is referred to as $planar flows$. The determinant of the Jacobian of this transformation is
 
 \begin{equation}
 	\text{det} \bigg\vert  \frac{\partial f}{\partial \mathbf{z}} \bigg\vert = \big\vert \text{det} \left( \mathbf{I} + \mathbf{u} (h^\prime (\mathbf{w}^\intercal \mathbf{z} + b) \mathbf{w})^\intercal \right) \big\vert = \big\vert 1 + \mathbf{u}^\intercal h^\prime (\mathbf{w}^\intercal \mathbf{z} + b) \mathbf{w} \big\vert
 \end{equation}
 
-Inverse auto-regressive flow \cite{kingma2016improved}
+\noindent Finally, putting everything together, we can use normalizing flows to draw samples from the final, more flexible approximate posterior, $q(\mathbf{z} | \mathbf{x}) = q_K (\mathbf{z}_K)$. The variational lower bound becomes
+
+\begin{equation}
+	\mathcal{L} = \mathbb{E}_{\mathbf{z} \sim q(\mathbf{z}, \mathbf{x})} \left[ \log p(\mathbf{x}, \mathbf{z}) - \log q(\mathbf{z}|\mathbf{x}) \right]
+	\label{eq: norm flows lower bound 1}
+\end{equation}
+
+\begin{equation}
+	\mathcal{L} = \mathbb{E}_{\mathbf{z}_0 \sim q(\mathbf{z}_0, \mathbf{x})} \left[ \log p(\mathbf{x}, \mathbf{z}_K) - \log q(\mathbf{z}_0|\mathbf{x}) + \sum_{k=1}^K \log \big\vert 1 + \mathbf{u}_k^\intercal h_k^\prime (\mathbf{w}_k^\intercal \mathbf{z}_{k-1} + b_k) \mathbf{w}_k \big\vert \right]
+	\label{eq: norm flows lower bound 2}
+\end{equation}
+
+\noindent Note that in going to eq. \ref{eq: norm flows lower bound 1} to eq. \ref{eq: norm flows lower bound 2} we have used the \textit{law of the unconscious statistician (LOTUS)}, which allows one to take expectations of a transformed variable (or any function thereof) using the original variable. If $\mathbf{z}^\prime = f(\mathbf{z})$ and $g$ is some arbitrary function of $\mathbf{z}^\prime$, then this can be expressed as
+
+\begin{equation}
+	\mathbb{E}_{\mathbf{z}^\prime \sim q (\mathbf{z}^\prime)} \left[ g(\mathbf{z}^\prime) \right] = \mathbb{E}_{\mathbf{z} \sim q (\mathbf{z})} \left[ g( f (\mathbf{z})) \right].
+\end{equation}
+
+\noindent Thus, we can take expectations with respect to the final density, i.e. the approximate posterior, using samples drawn from the initial density. In an amortized inference setting, the inference model can output the parameters of the initial distribution as well as parameters for each stage of the flow. The flow parameters could also be learned as global parameters.
+
+
+Another class of normalizing flows is \textit{inverse auto-regressive flow (IAF)} \cite{kingma2016improved}. These transformations take inspiration from auto-regressive models, which factor joint probability distributions into a series of conditional distributions using the chain rule of probability.
 
 
 

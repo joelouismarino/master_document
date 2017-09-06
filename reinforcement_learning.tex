@@ -2,14 +2,16 @@
 
 \section{The RL Problem Setting}
 
+TODO: image of agent environment interaction.
+
 \subsection{The Basics}
 
-Reinforcement learning involves an \textit{agent} interacting within an \textit{environment}. The agent selects actions, and the environment responds with new states and rewards. Sutton \& Barto \cite{sutton1998reinforcement} identify four additional sub-elements to reinforcement learning systems:
+Reinforcement learning involves an \textbf{agent} interacting within an \textbf{environment}. The agent selects actions, and the environment responds with new states and rewards. Sutton \& Barto \cite{sutton1998reinforcement} identify four additional sub-elements to reinforcement learning systems:
 \begin{itemize}
-	\item a \textit{policy},
-	\item a \textit{reward signal},
-	\item a \textit{value function},
-	\item and, optionally, a \textit{model} of the environment.
+	\item a \textbf{policy},
+	\item a \textbf{reward signal},
+	\item a \textbf{value function},
+	\item and, optionally, a \textbf{model} of the environment.
 \end{itemize}
 \noindent A \textit{policy} defines a mapping from (perceived) states to output actions to be taken. A \textit{reward signal} is a real-valued number that the agent receives from the environment. The agent tries to maximize its total reward, which is referred to as value. The \textit{value function} specifies the expected value, starting from a particular state. Thus, it is ultimately value that we try to optimize. Finally, a \textit{model} of the environment is the agent's simulation of the environment, allowing the agent to plan actions and predict outcomes (states, rewards, etc.).
 
@@ -17,45 +19,102 @@ The boundary between agent and environment is often not clearly defined. Sutton 
 
 We assume that time unfolds in a series of discrete time-steps, $t = 1, 2, 3, \dots$ At each time step, the agent is in some state $S_t \in \mathcal{S}$ and chooses some action $A_t \in \mathcal{A} (S_t)$. Here, $\mathcal{S}$ denotes the space of possible states and $\mathcal{A} (S_t)$ denotes the space of possible actions from state $S_t$. The action is chosen based on the agent's policy $\pi_t (a | s)$, which probabilistically maps states $S_t = s$ to actions $A_t = a$. At the next time step, the agent receives a real-valued reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and arrives in the next state, $S_{t+1}$.
 
-The \textit{return}, $G_t$, is the (discounted) sum of rewards starting at time $t$. For \textit{episodic tasks}, in which the sequence has a finite length, $T$, this is defined as 
+The \textbf{return}, $G_t$, is the (discounted) sum of rewards starting at time $t$. For \textbf{episodic tasks}, in which the sequence has a finite length, $T$, this is defined as 
 
 \begin{equation}
 G_t \triangleq R_{t+1} + R_{t+2} + \dots + R_T = \sum_{k=0}^{T - t - 1} R_{t + k + 1},
 \end{equation}
 
-\noindent However, for \textit{continuing tasks}, in which the time sequence length can be infinite, we include a \textit{discount rate}, $\gamma \in [0, 1]$, to prevent the return from going to infinity:
+\noindent However, for \textbf{continuing tasks}, in which the time sequence length can be infinite, we include a \textbf{discount rate}, $\gamma \in [0, 1]$, to prevent the return from going to infinity:
 
 \begin{equation}
 G_t \triangleq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1}.
 \end{equation}
 
-The \textit{value function} or \textit{state-value function}, $v_\pi (s)$, is defined as the expected return from being in state $s$ when using policy $\pi$:
+The \textbf{value function} or \textbf{state-value function}, $v_\pi (s)$, is defined as the expected return from being in state $s$ when using policy $\pi$:
 
 \begin{equation}
 	v_\pi (s) \triangleq \mathbb{E}_\pi \left[ G_t | S_t = s \right] = \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1} | S_t = s \right].
+	\label{eq: value_func_def}
 \end{equation}
 
-\noindent Note that here we are assuming that the task respects the Markov property; the current state, along with the policy, contains all of the information to determine the value function. We can also define an \textit{action-value function}, $q_\pi (s, a)$, which specifies expected returns for each action $a$ taken from state $s$ using policy $\pi$:
+\noindent Note that here we are assuming that the task respects the Markov property; the current state, along with the policy, contains all of the information to determine the value function. We can also define an \textbf{action-value function}, $q_\pi (s, a)$, which specifies expected returns for each action $a$ taken from state $s$ using policy $\pi$:
 
 \begin{equation}
 	q_\pi (s, a) \triangleq \mathbb{E}_\pi \left[ G_t | S_t = s, A_t = a \right] = \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1} | S_t = s, A_t = a \right].
 \end{equation}
 
-Using the definition of the value function, we can derive a recursive relationship known as the Bellman equation:
+Using the definition of the value function, we can derive a recursive relationship known as the \textbf{Bellman equation}. Starting from eq. \ref{eq: value_func_def}:
 
+\begin{align}
+	\label{eq: bellman_0}
+	v_\pi (s) &\triangleq \mathbb{E}_\pi \left[ G_t | S_t = s \right] \\
+	\label{eq: bellman_1}
+	&= \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 1} \bigg\vert S_t = s \right] \\
+	\label{eq: bellman_2}
+	&= \mathbb{E}_\pi \left[ R_{t+1} + \gamma \sum_{k=0}^{\infty} \gamma^k R_{t + k + 2} \bigg\vert S_t = s \right] \\
+	\label{eq: bellman_3}
+	&= \sum_{a, s^\prime, r} \pi(a | s) p(s^\prime, r | s, a) \left[ r + \gamma \mathbb{E}_\pi \left[ \sum_{k=0}^{\infty} \gamma^k R_{t + k + 2} \bigg\vert S_{t+1} = s^\prime \right] \right] \\
+	\label{eq: bellman_4}
+	&= \sum_{a, s^\prime, r} \pi(a | s) p(s^\prime, r | s, a) \left[ r + \gamma v_\pi (s^\prime) \right].
+\end{align}
 
+\noindent To go from eq. \ref{eq: bellman_1} to eq. \ref{eq: bellman_2}, we split the first term out of the sum. To arrive at \ref{eq: bellman_3}, we move the expectation to the future summation, re-expressing the expectation over the first step using summations to weight each return by the appropriate probability of the action $a$, state $s^\prime$, and reward $r$. Finally, to arrive at  \ref{eq: bellman_4}, we notice that the expectation is the value of state $s^\prime$ under our policy, i.e. $v_\pi (s^\prime)$. Thus, we see that the value function has the recursive definition:
+
+\begin{equation}
+	v_\pi (s) = \sum_{a, s^\prime, r} \pi(a | s) p(s^\prime, r | s, a) \left[ r + \gamma v_\pi (s^\prime) \right].
+\end{equation}
+
+\noindent A similar recursive definition can be derived for $q_\pi (s, a)$.
+
+The \textbf{optimal value function} $v_* (s)$
 
 \subsection{Summary of Notation}
 
 
 \section{Value Based Methods}
 
-\subsection{Q Learning}
+\subsection{Multi-Armed Bandits}
+
+The multi-armed bandit problem is an example of a \textit{non-associative setting}, in which the agent only learns to act in one situation. This simplifies much of the reinforcement learning problem. In particular, the \textbf{multi-armed bandit} problem involves a situation with $k$ possible actions (sometimes referred to as arms, in analogy to slot machines), each with an associated value. The value of action $a$ is denoted as $q_* (a)$, the \textbf{action-value function}. The interaction between the agent and the environment consists of a series of episodes, each of duration 1 time step. At time step $t$, the agent takes \textbf{action} $A_t$ and receives \textbf{reward} $R_t$. Thus, for some action $A_t = a$, the action-value function is defined as
+
+\begin{equation}
+	q_* (a) \triangleq \mathbb{E} \left[ R_t | A_t = a \right].
+\end{equation}
+
+\noindent Note that rewards can be a stochastic function of the action chosen. $q_* (a)$ encodes the \textit{mean} reward of choosing action $a$. In multi-armed bandit problems, the action-value function is initially unknown. To optimize total reward, we must estimate the action-value function to find the action or actions with the highest reward. Selecting this action will then optimize reward. We refer to the \textbf{action-value estimates} at time step $t$ as $Q_t (a)$.
+
+At any time step $t$, we can either \textbf{exploit} our current knowledge by choosing the action with the optimal action-value estimate, or we can \textbf{explore} other actions with non-optimal action-value estimates. Exploitation is a greedy process, which will likely yield higher rewards in the short-term. Exploration, on the other hand, may find better actions, which can later be exploited, allowing it to likely yield higher rewards in the long-term.
+
+We can select actions according to different strategies. For instance, we could select the action with the optimal action-value estimate at each time step:
+
+\begin{equation}
+A_t = \text{argmax}_a Q_t (a)
+\end{equation}
+
+\noindent However, this policy will never explore other actions, and may therefore perform poorly in the long run. Another strategy is to select the action with the optimal action-value estimate with probability $1 - \epsilon$ and select a random action with probability $\epsilon$. This strategy is referred to as $\epsilon$\textbf{-greedy}.
+
+\subsection{Dynamic Programming Methods}
+
+\subsubsection{Policy Iteration}
+
+\subsubsection{Value Iteration}
+
+\subsection{Monte Carlo Methods}
 
 \subsection{TD Learning}
 
+\subsubsection{Q Learning}
+
+\subsubsection{SARSA}
+
+
 
 \section{Policy Gradient Methods}
+
+\subsection{REINFORCE}
+
+\subsection{Actor-Critic Methods}
 
 
 \section{Intrinsically Motivated RL}
@@ -64,4 +123,7 @@ Using the definition of the value function, we can derive a recursive relationsh
 \newline
 
 \noindent \cite{mohamed2015variational} use empowerment.
+\newline
+
+\noindent \cite{gregor2016variational} introduce variational intrinsic control within the option framework.
 

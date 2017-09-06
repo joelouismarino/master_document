@@ -16,45 +16,45 @@ A level-1 auxiliary file: appendix.aux
 Database file #1: main.bib
 Warning--empty journal in kingma2016improved
 Warning--can't use both volume and number fields in sutton1998reinforcement
-You've used 29 entries,
+You've used 33 entries,
             1876 wiz_defined-function locations,
-            656 strings with 8813 characters,
-and the built_in function-call counts, 8217 in all, are:
-= -- 808
-> -- 358
+            676 strings with 9442 characters,
+and the built_in function-call counts, 9004 in all, are:
+= -- 881
+> -- 392
 < -- 0
-+ -- 131
-- -- 102
-* -- 602
-:= -- 1178
-add.period$ -- 31
-call.type$ -- 29
-change.case$ -- 27
++ -- 144
+- -- 111
+* -- 656
+:= -- 1299
+add.period$ -- 35
+call.type$ -- 33
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 419
-empty$ -- 742
-format.name$ -- 102
-if$ -- 1979
+cite$ -- 35
+duplicate$ -- 463
+empty$ -- 823
+format.name$ -- 111
+if$ -- 2167
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 31
-newline$ -- 92
-num.names$ -- 29
-pop$ -- 80
+int.to.str$ -- 33
+missing$ -- 35
+newline$ -- 104
+num.names$ -- 33
+pop$ -- 93
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 282
+skip$ -- 300
 stack$ -- 0
-substring$ -- 557
-swap$ -- 181
+substring$ -- 589
+swap$ -- 193
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 78
-width$ -- 31
-write$ -- 285
+while$ -- 85
+width$ -- 35
+write$ -- 320
 (There were 2 warnings)

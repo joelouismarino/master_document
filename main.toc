@@ -21,32 +21,41 @@
 \contentsline {section}{\numberline {6.2}Variational Inference}{7}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Inference as Optimization: Deriving the ELBO}{7}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Normalizing Flows}{8}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Latent Variable Models}{9}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Temporal Latent Variable Models}{9}{subsection.6.3.1}
-\contentsline {chapter}{\numberline {7}Representations \& Representation Learning}{11}{chapter.7}
-\contentsline {section}{\numberline {7.1}Motivation \& Definitions}{11}{section.7.1}
-\contentsline {section}{\numberline {7.2}Disentangled Representations}{11}{section.7.2}
-\contentsline {chapter}{\numberline {8}Reinforcement Learning}{13}{chapter.8}
-\contentsline {section}{\numberline {8.1}The RL Problem Setting}{13}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}The Basics}{13}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}Summary of Notation}{14}{subsection.8.1.2}
-\contentsline {section}{\numberline {8.2}Value Based Methods}{14}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Q Learning}{14}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}TD Learning}{14}{subsection.8.2.2}
-\contentsline {section}{\numberline {8.3}Policy Gradient Methods}{14}{section.8.3}
-\contentsline {section}{\numberline {8.4}Intrinsically Motivated RL}{14}{section.8.4}
-\contentsline {chapter}{\numberline {9}Predictive Coding}{15}{chapter.9}
-\contentsline {section}{\numberline {9.1}Introduction}{15}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Literature Summary}{15}{subsection.9.1.1}
-\contentsline {section}{\numberline {9.2}The Static Setting}{16}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}MAP State Estimation in a One--Level Model}{16}{subsection.9.2.1}
-\contentsline {section}{\numberline {9.3}The Dynamic Setting}{18}{section.9.3}
-\contentsline {section}{\numberline {9.4}Attention}{18}{section.9.4}
-\contentsline {section}{\numberline {9.5}Active Inference}{18}{section.9.5}
-\contentsline {section}{\numberline {9.6}Neural Implementation}{18}{section.9.6}
-\contentsline {subsection}{\numberline {9.6.1}Correspondence with Cortical Mircrocircuits}{18}{subsection.9.6.1}
-\contentsline {chapter}{\numberline {10}Experiment Best Practices}{19}{chapter.10}
-\contentsline {section}{\numberline {10.1}GitHub}{19}{section.10.1}
-\contentsline {section}{\numberline {10.2}Experiment Logging}{20}{section.10.2}
-\contentsline {section}{\numberline {10.3}Plotting}{21}{section.10.3}
-\contentsline {chapter}{\numberline {A}Appendix 1}{24}{appendix.A}
+\contentsline {section}{\numberline {6.3}Latent Variable Models}{10}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Temporal Latent Variable Models}{10}{subsection.6.3.1}
+\contentsline {chapter}{\numberline {7}Representation Learning}{12}{chapter.7}
+\contentsline {section}{\numberline {7.1}Motivation \& Definitions}{12}{section.7.1}
+\contentsline {section}{\numberline {7.2}Representation Learning Without a Task}{13}{section.7.2}
+\contentsline {section}{\numberline {7.3}Disentangled Representations}{13}{section.7.3}
+\contentsline {chapter}{\numberline {8}Reinforcement Learning}{14}{chapter.8}
+\contentsline {section}{\numberline {8.1}The RL Problem Setting}{14}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}The Basics}{14}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Summary of Notation}{16}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Value Based Methods}{16}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Multi-Armed Bandits}{16}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Dynamic Programming Methods}{17}{subsection.8.2.2}
+\contentsline {subsubsection}{\numberline {8.2.2.1}Policy Iteration}{17}{subsubsection.8.2.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2.2}Value Iteration}{17}{subsubsection.8.2.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Monte Carlo Methods}{17}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.4}TD Learning}{17}{subsection.8.2.4}
+\contentsline {subsubsection}{\numberline {8.2.4.1}Q Learning}{17}{subsubsection.8.2.4.1}
+\contentsline {subsubsection}{\numberline {8.2.4.2}SARSA}{17}{subsubsection.8.2.4.2}
+\contentsline {section}{\numberline {8.3}Policy Gradient Methods}{17}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}REINFORCE}{17}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Actor-Critic Methods}{17}{subsection.8.3.2}
+\contentsline {section}{\numberline {8.4}Intrinsically Motivated RL}{17}{section.8.4}
+\contentsline {chapter}{\numberline {9}Predictive Coding}{18}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introduction}{18}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Literature Summary}{18}{subsection.9.1.1}
+\contentsline {section}{\numberline {9.2}The Static Setting}{19}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}MAP State Estimation in a One--Level Model}{19}{subsection.9.2.1}
+\contentsline {section}{\numberline {9.3}The Dynamic Setting}{21}{section.9.3}
+\contentsline {section}{\numberline {9.4}Attention}{21}{section.9.4}
+\contentsline {section}{\numberline {9.5}Active Inference}{21}{section.9.5}
+\contentsline {section}{\numberline {9.6}Neural Implementation}{21}{section.9.6}
+\contentsline {subsection}{\numberline {9.6.1}Correspondence with Cortical Mircrocircuits}{21}{subsection.9.6.1}
+\contentsline {chapter}{\numberline {10}Experiment Best Practices}{22}{chapter.10}
+\contentsline {section}{\numberline {10.1}GitHub}{22}{section.10.1}
+\contentsline {section}{\numberline {10.2}Experiment Logging}{23}{section.10.2}
+\contentsline {section}{\numberline {10.3}Plotting}{24}{section.10.3}
+\contentsline {chapter}{\numberline {A}Appendix 1}{28}{appendix.A}

@@ -1,12 +1,33 @@
-\chapter{Representations \& Representation Learning}
+\chapter{Representation Learning}
 
 \section{Motivation \& Definitions}
 
+\textit{Representation learning} is the process of taking data $\mathbf{x}$, or some collection thereof, and forming a representation $\mathbf{z}$, that captures some meaningful aspects of the data. Note that, due to the data processing inequality, there can be no creation of additional information, only the transformation of the information contained in $\mathbf{x}$.
+
+A fundamental aspect of representation learning is that it is inherently ill-defined. There is no way in which to assess the quality of a representation, i.e. which aspects of the data to capture, without defining a \textit{task} which one hopes to accomplish with the representation. We will refer to the output of this task as $\mathbf{y}$. Given this task, one can then define an \textit{ideal representation} for that task. \cite{achille2017emergence} provides a theory, based on the Information Bottleneck Lagrangian \cite{tishby2000information}, defined as
+
+\begin{equation}
+	\mathcal{L}(p(\mathbf{z} | \mathbf{x})) \triangleq H(\mathbf{y} | \mathbf{z}) + \beta I(\mathbf{z} ; \mathbf{x}),
+\end{equation}
+
+\noindent where $\beta$ is a regularization weight, for forming such representations. They define an ideal representation $\mathbf{z}$ as one that is:
+
+\begin{enumerate}
+	\item \textbf{sufficient}: capturing the information contained in $\mathbf{x}$ that is sufficient to estimate $\mathbf{y}$, i.e. $I(\mathbf{y}; \mathbf{z}) = I(\mathbf{y}; \mathbf{x})$.
+	\item \textbf{minimal}: retains as little information about $\mathbf{x}$ as possible, making the task easier, i.e. $I(\mathbf{z}; \mathbf{x})$ is minimized.
+	\item \textbf{invariant}: nuisances $n$ have no effect on the representation, which helps to prevent overfitting i.e. $I(\mathbf{z}; n) = 0$.
+	\item \textbf{disentangled}: the total correlation, defined as the dissimilarity between the representation and the product of its marginals, $TC(\mathbf{z}) \triangleq D_{KL} (p(\mathbf{z}) || p(\mathbf{z}_1) p(\mathbf{z}_2) \dots p(\mathbf{z}_L))$, is minimized.
+\end{enumerate}
+
+\noindent \cite{achille2017emergence} show that only (1) and (2) need to be enforced, as (3) and (4) naturally follow.
+
+
 \cite{bengio2013representation} has a good review of different desirable qualities of representations.
 
-Overview of types of representations. How do we learning representations? What training criteria/conditions result in different representations? Are certain representations better than others? In which cases and why? The quality of a representation can only fundamentally be judged by its usefulness in helping to perform some task. That is, representations must be viewed in the context of a task.
 
+\section{Representation Learning Without a Task}
 
+Often, we do not have a well-defined task, however, we would still like to learn a representation that captures aspects of the data that will facilitate rapid transfer learning to future tasks. This is referred to as \textit{unsupervised learning}. The lack of task implies that we no longer have a measure of sufficiency, meaning that we must define an alternative quantity to optimize. 
 
 \section{Disentangled Representations}
 

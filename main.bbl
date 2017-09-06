@@ -14,6 +14,14 @@ Y.~Bengio, A.~Courville, and P.~Vincent, ``Representation learning: A review
   and new perspectives,'' {\em IEEE transactions on pattern analysis and
   machine intelligence}, vol.~35, no.~8, pp.~1798--1828, 2013.
 
+\bibitem{achille2017emergence}
+A.~Achille and S.~Soatto, ``On the emergence of invariance and disentangling in
+  deep representations,'' {\em arXiv preprint arXiv:1706.01350}, 2017.
+
+\bibitem{tishby2000information}
+N.~Tishby, F.~C. Pereira, and W.~Bialek, ``The information bottleneck method,''
+  {\em arXiv preprint physics/0004057}, 2000.
+
 \bibitem{cheung2014discovering}
 B.~Cheung, J.~A. Livezey, A.~K. Bansal, and B.~A. Olshausen, ``Discovering
   hidden factors of variation in deep networks,'' {\em arXiv preprint
@@ -49,6 +57,10 @@ S.~Mohamed and D.~J. Rezende, ``Variational information maximisation for
   intrinsically motivated reinforcement learning,'' in {\em Advances in neural
   information processing systems}, pp.~2125--2133, 2015.
 
+\bibitem{gregor2016variational}
+K.~Gregor, D.~J. Rezende, and D.~Wierstra, ``Variational intrinsic control,''
+  {\em arXiv preprint arXiv:1611.07507}, 2016.
+
 \bibitem{rao1999predictive}
 R.~P. Rao and D.~H. Ballard, ``Predictive coding in the visual cortex: a
   functional interpretation of some extra-classical receptive-field effects,''
@@ -57,6 +69,11 @@ R.~P. Rao and D.~H. Ballard, ``Predictive coding in the visual cortex: a
 \bibitem{von1867handbuch}
 H.~Von~Helmholtz, {\em Handbuch der physiologischen Optik}, vol.~9.
 \newblock Voss, 1867.
+
+\bibitem{clark2013whatever}
+A.~Clark, ``Whatever next? predictive brains, situated agents, and the future
+  of cognitive science,'' {\em Behavioral and Brain Sciences}, vol.~36, no.~3,
+  pp.~181--204, 2013.
 
 \bibitem{friston2002functional}
 K.~Friston, ``Functional integration and inference in the brain,'' {\em
