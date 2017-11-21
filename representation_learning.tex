@@ -1,33 +1,59 @@
 \chapter{Representation Learning}
 
-\section{Motivation \& Definitions}
+\section{Introduction}
 
-\textit{Representation learning} is the process of taking data $\mathbf{x}$, or some collection thereof, and forming a representation $\mathbf{z}$, that captures some meaningful aspects of the data. Note that, due to the data processing inequality, there can be no creation of additional information, only the transformation of the information contained in $\mathbf{x}$.
+\textit{Representation learning} is the process of taking data, $\mathbf{x}$, and forming a representation, $\mathbf{z}$, that captures the ``meaningful" information contained in the data. How do we define what constitutes meaningful information? This question exposes a fundamental aspect of representation learning: it is inherently ill-defined. There is no way in which to truly assess the quality of a representation, i.e. which aspects of the data are meaningful, without defining a \textit{task}, $\mathbf{y}$, which one hopes to accomplish with the representation. In Section \ref{sec: information bottleneck}, we discuss the information bottleneck theory \cite{tishby2000information}, an information theoretic framework for representation learning. Then, in Section \ref{sec: representation learning without a task}, we discuss learning representations in the absence of a clearly defined task, where we outline a variety of heuristics and priors.
 
-A fundamental aspect of representation learning is that it is inherently ill-defined. There is no way in which to assess the quality of a representation, i.e. which aspects of the data to capture, without defining a \textit{task} which one hopes to accomplish with the representation. We will refer to the output of this task as $\mathbf{y}$. Given this task, one can then define an \textit{ideal representation} for that task. \cite{achille2017emergence} provides a theory, based on the Information Bottleneck Lagrangian \cite{tishby2000information}, defined as
+\section{The Information Bottleneck}
+\label{sec: information bottleneck}
 
-\begin{equation}
-	\mathcal{L}(p(\mathbf{z} | \mathbf{x})) \triangleq H(\mathbf{y} | \mathbf{z}) + \beta I(\mathbf{z} ; \mathbf{x}),
-\end{equation}
-
-\noindent where $\beta$ is a regularization weight, for forming such representations. They define an ideal representation $\mathbf{z}$ as one that is:
-
+The \textbf{information bottleneck} is a compression method that squeezes the information that an input variable $\mathbf{x} \in X$ (data) contains about some other variable $\mathbf{y} \in Y$ (task) through a `bottleneck' formed by a representation $\mathbf{z} \in Z$ \cite{tishby2000information}. The approach is motivated by rate distortion theory \cite{cover2012elements}, in which the quality of a representation is determined by
 \begin{enumerate}
-	\item \textbf{sufficient}: capturing the information contained in $\mathbf{x}$ that is sufficient to estimate $\mathbf{y}$, i.e. $I(\mathbf{y}; \mathbf{z}) = I(\mathbf{y}; \mathbf{x})$.
-	\item \textbf{minimal}: retains as little information about $\mathbf{x}$ as possible, making the task easier, i.e. $I(\mathbf{z}; \mathbf{x})$ is minimized.
-	\item \textbf{invariant}: nuisances $n$ have no effect on the representation, which helps to prevent overfitting i.e. $I(\mathbf{z}; n) = 0$.
-	\item \textbf{disentangled}: the total correlation, defined as the dissimilarity between the representation and the product of its marginals, $TC(\mathbf{z}) \triangleq D_{KL} (p(\mathbf{z}) || p(\mathbf{z}_1) p(\mathbf{z}_2) \dots p(\mathbf{z}_L))$, is minimized.
+	\item the \textit{information rate}, i.e. the average amount of information required to specify $\mathbf{z}$ without confusion
+	\item the \textit{distortion function} $d$, which implicitly specifies the most relevant aspects of the input $X$. 
+\end{enumerate}
+\noindent A good representation is thus one that maximally compresses the meaningful information in the data. We could solve for the representation by introducing a Lagrange multiplier $\beta$ and use variational methods to solve the following equation for $p(\mathbf{z}|\mathbf{x})$:
+\begin{equation}
+	\mathcal{F} [p(\mathbf{z}|\mathbf{x})] = I(Z; X) + \beta \langle d(\mathbf{z}, \mathbf{x}) \rangle_{p(\mathbf{z}|\mathbf{x})},
+\end{equation}
+\noindent where $I$ denotes the mutual information. However, we rarely have access to the correct distortion function. The information bottleneck method instead uses another variable $Y$ to specify the relevant aspects of $X$. The tradeoff between compression and information preservation is expressed by the functional
+\begin{equation}
+	\mathcal{L} [p(\mathbf{z}|\mathbf{x})] = I(Z; X) - \beta I(Z; Y).
+\end{equation}
+\noindent An exact formal solution can be derived for this functional. One can solve the free-energy functional
+\begin{equation}
+	\mathcal{F}[p(\mathbf{z} | \mathbf{x}), p(\mathbf{z}), p(\mathbf{y} | \mathbf{z})] = I(Z; X) + \beta \langle D_{KL} (p(\mathbf{y} | \mathbf{x}) || p(\mathbf{y} | \mathbf{z}) ) \rangle_{p(\mathbf{x}, \mathbf{z})}
+\end{equation}
+\noindent for $p(\mathbf{z} | \mathbf{x})$, $p(\mathbf{z})$, and $p(\mathbf{y} | \mathbf{z})$, using a deterministic annealing approach for $\beta$. Building on this work, in \cite{achille2017emergence}, an ideal representation is defined as one that is:
+\begin{enumerate}
+	\item \textbf{sufficient}: capturing the information contained in $\mathbf{x}$ that is sufficient to estimate $\mathbf{y}$, i.e. $I(Y; Z) = I(Y; X)$.
+	\item \textbf{minimal}: retains as little information about $\mathbf{x}$ as possible, making the task easier, i.e. $I(Z; X)$ is minimized.
+	\item \textbf{invariant}: nuisances $n$ have no effect on the representation, which helps to prevent overfitting i.e. $I(Z; n) = 0$.
+	\item \textbf{disentangled}: the total correlation, defined as the dissimilarity between the representation and the product of its marginals, $TC(\mathbf{z}) \equiv D_{KL} (p(\mathbf{z}) || p(\mathbf{z}_1) p(\mathbf{z}_2) \dots p(\mathbf{z}_L))$, is minimized.
 \end{enumerate}
 
-\noindent \cite{achille2017emergence} show that only (1) and (2) need to be enforced, as (3) and (4) naturally follow.
-
-
-\cite{bengio2013representation} has a good review of different desirable qualities of representations.
+\noindent It is shown that only (1) and (2) need to be enforced, as (3) and (4) naturally follow.
 
 
 \section{Representation Learning Without a Task}
+\label{sec: representation learning without a task}
 
 Often, we do not have a well-defined task, however, we would still like to learn a representation that captures aspects of the data that will facilitate rapid transfer learning to future tasks. This is referred to as \textit{unsupervised learning}. The lack of task implies that we no longer have a measure of sufficiency, meaning that we must define an alternative quantity to optimize. 
+
+\cite{bengio2013representation} identify an alternative set of \textit{priors} for ideal representations:
+
+\begin{enumerate}
+	\item \textbf{smoothness}: the representation should be a \textit{smooth} mapping of the data, i.e. if $\mathbf{x}^{(1)} \approx \mathbf{x}^{(2)}$, then $\mathbf{z}^{(1)} \approx \mathbf{z}^{(2)}$.
+	\item \textbf{multiple explanatory factors}: the representation is made up of a set of disentangled factors that explain the data. This is also sometimes referred to as a distributed representation.
+	\item \textbf{hierarchical organization}: the representation is arranged in a hierarchy from lower level to more abstract factors.
+	\item \textbf{semi-supervised}: the factors necessary for modeling the data $\mathbf{x}$ are useful for modeling some task labels $\mathbf{y}$. This is related to sufficiency mentioned above, but does not place importance on the task first and foremost.
+	\item \textbf{shared factors across tasks}: explanatory factors within the representation should be useful more multiple tasks
+	\item \textbf{manifolds}: probability mass should be concentrated near regions that are much smaller than the entire dimensionality of the data. The data does not occupy the input space uniformly.
+	\item \textbf{natural clustering}: different explanatory factors may lie on different manifolds.
+	\item \textbf{temporal and spatial coherence}: inputs that are nearby in space and time should be similar (although this can be violated)
+	\item \textbf{sparsity}: only a small number of factors within the representation should be active for any particular data example.
+	\item \textbf{simplicity of factor dependencies}: the higher level factors should have simple (i.e. linear) dependencies.
+\end{enumerate}
 
 \section{Disentangled Representations}
 
@@ -46,8 +72,9 @@ Two random variables are \textbf{independent} if their joint probability can be 
 \end{equation}
 
 Independence is related to covariance, but is a stronger property. Two variables that are independent have zero covariance and two variables that have non-zero covariance are dependent. Zero covariance implies that the variables have no \textit{linear} dependence. Independence implies that the variables also have no \textit{non-linear} dependence. That is, it is possible for two dependent variables to have zero covariance. 
-\\
-\\
+
+
+\section{Other}
 \noindent \textbf{Notes:}
 
 \cite{cheung2014discovering} propose using a cross-covariance penalty term in the setting of semi-supervised learning of the form:

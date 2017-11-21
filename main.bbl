@@ -1,5 +1,41 @@
 \begin{thebibliography}{10}
 
+\bibitem{sarkka2013bayesian}
+S.~S{\"a}rkk{\"a}, {\em Bayesian filtering and smoothing}, vol.~3.
+\newblock Cambridge University Press, 2013.
+
+\bibitem{kalman1961new}
+R.~E. Kalman and R.~S. Bucy, ``New results in linear filtering and prediction
+  theory,'' {\em Journal of basic engineering}, vol.~83, no.~1, pp.~95--108,
+  1961.
+
+\bibitem{chung2015recurrent}
+J.~Chung, K.~Kastner, L.~Dinh, K.~Goel, A.~C. Courville, and Y.~Bengio, ``A
+  recurrent latent variable model for sequential data,'' in {\em Advances in
+  neural information processing systems}, pp.~2980--2988, 2015.
+
+\bibitem{fraccaro2016sequential}
+M.~Fraccaro, S.~K. S{\o}nderby, U.~Paquet, and O.~Winther, ``Sequential neural
+  models with stochastic layers,'' in {\em Advances in Neural Information
+  Processing Systems}, pp.~2199--2207, 2016.
+
+\bibitem{gemici2017generative}
+M.~Gemici, C.-C. Hung, A.~Santoro, G.~Wayne, S.~Mohamed, D.~J. Rezende,
+  D.~Amos, and T.~Lillicrap, ``Generative temporal models with memory,'' {\em
+  arXiv preprint arXiv:1702.04649}, 2017.
+
+\bibitem{friston2010generalised}
+K.~Friston, K.~Stephan, B.~Li, and J.~Daunizeau, ``Generalised filtering,''
+  {\em Mathematical Problems in Engineering}, vol.~2010, 2010.
+
+\bibitem{dinh2016density}
+L.~Dinh, J.~Sohl-Dickstein, and S.~Bengio, ``Density estimation using real
+  nvp,'' {\em arXiv preprint arXiv:1605.08803}, 2016.
+
+\bibitem{dinh2014nice}
+L.~Dinh, D.~Krueger, and Y.~Bengio, ``Nice: Non-linear independent components
+  estimation,'' {\em arXiv preprint arXiv:1410.8516}, 2014.
+
 \bibitem{rezende2015variational}
 D.~J. Rezende and S.~Mohamed, ``Variational inference with normalizing flows,''
   {\em arXiv preprint arXiv:1505.05770}, 2015.
@@ -9,18 +45,22 @@ D.~P. Kingma, T.~Salimans, R.~Jozefowicz, X.~Chen, I.~Sutskever, and
   M.~Welling, ``Improved variational inference with inverse autoregressive
   flow,'' 2016.
 
-\bibitem{bengio2013representation}
-Y.~Bengio, A.~Courville, and P.~Vincent, ``Representation learning: A review
-  and new perspectives,'' {\em IEEE transactions on pattern analysis and
-  machine intelligence}, vol.~35, no.~8, pp.~1798--1828, 2013.
+\bibitem{tishby2000information}
+N.~Tishby, F.~C. Pereira, and W.~Bialek, ``The information bottleneck method,''
+  {\em arXiv preprint physics/0004057}, 2000.
+
+\bibitem{cover2012elements}
+T.~M. Cover and J.~A. Thomas, {\em Elements of information theory}.
+\newblock John Wiley \& Sons, 2012.
 
 \bibitem{achille2017emergence}
 A.~Achille and S.~Soatto, ``On the emergence of invariance and disentangling in
   deep representations,'' {\em arXiv preprint arXiv:1706.01350}, 2017.
 
-\bibitem{tishby2000information}
-N.~Tishby, F.~C. Pereira, and W.~Bialek, ``The information bottleneck method,''
-  {\em arXiv preprint physics/0004057}, 2000.
+\bibitem{bengio2013representation}
+Y.~Bengio, A.~Courville, and P.~Vincent, ``Representation learning: A review
+  and new perspectives,'' {\em IEEE transactions on pattern analysis and
+  machine intelligence}, vol.~35, no.~8, pp.~1798--1828, 2013.
 
 \bibitem{cheung2014discovering}
 B.~Cheung, J.~A. Livezey, A.~K. Bansal, and B.~A. Olshausen, ``Discovering
@@ -47,10 +87,53 @@ R.~S. Sutton and A.~G. Barto, {\em Reinforcement learning: An introduction},
   vol.~1.
 \newblock MIT press Cambridge, 1998.
 
+\bibitem{oudeyer2008can}
+P.-Y. Oudeyer and F.~Kaplan, ``How can we define intrinsic motivation?,'' in
+  {\em Proceedings of the 8th International Conference on Epigenetic Robotics:
+  Modeling Cognitive Development in Robotic Systems, Lund University Cognitive
+  Studies, Lund: LUCS, Brighton}, Lund University Cognitive Studies, Lund:
+  LUCS, Brighton, 2008.
+
+\bibitem{berlyne1965structure}
+D.~E. Berlyne, ``Structure and direction in thinking.,'' 1965.
+
+\bibitem{itti2006bayesian}
+L.~Itti and P.~F. Baldi, ``Bayesian surprise attracts human attention,'' in
+  {\em Advances in neural information processing systems}, pp.~547--554, 2006.
+
+\bibitem{schmidhuber2010formal}
+J.~Schmidhuber, ``Formal theory of creativity, fun, and intrinsic motivation
+  (1990--2010),'' {\em IEEE Transactions on Autonomous Mental Development},
+  vol.~2, no.~3, pp.~230--247, 2010.
+
+\bibitem{nelson2005finding}
+J.~D. Nelson, ``Finding useful questions: On bayesian diagnosticity,
+  probability, impact, and information gain,'' {\em Psychological review},
+  vol.~112, no.~4, 2005.
+
 \bibitem{barto2004intrinsically}
 A.~G. Barto, S.~Singh, and N.~Chentanez, ``Intrinsically motivated learning of
   hierarchical collections of skills,'' in {\em Proceedings of the 3rd
   International Conference on Development and Learning}, pp.~112--19, 2004.
+
+\bibitem{klyubin2005empowerment}
+A.~S. Klyubin, D.~Polani, and C.~L. Nehaniv, ``Empowerment: A universal
+  agent-centric measure of control,'' in {\em Evolutionary Computation, 2005.
+  The 2005 IEEE Congress on}, vol.~1, pp.~128--135, IEEE, 2005.
+
+\bibitem{little2013learning}
+D.~Y. Little and F.~T. Sommer, ``Learning and exploration in action-perception
+  loops,'' {\em Frontiers in neural circuits}, vol.~7, 2013.
+
+\bibitem{wissner2013causal}
+A.~D. Wissner-Gross and C.~E. Freer, ``Causal entropic forces,'' {\em Physical
+  review letters}, vol.~110, no.~16, p.~168702, 2013.
+
+\bibitem{barber2003algorithm}
+D.~Barber and F.~Agakov, ``The im algorithm: a variational approach to
+  information maximization,'' in {\em Proceedings of the 16th International
+  Conference on Neural Information Processing Systems}, pp.~201--208, MIT
+  Press, 2003.
 
 \bibitem{mohamed2015variational}
 S.~Mohamed and D.~J. Rezende, ``Variational information maximisation for
@@ -100,10 +183,6 @@ K.~J. Friston, ``Variational filtering,'' {\em NeuroImage}, vol.~41, no.~3,
 K.~J. Friston, N.~Trujillo-Barreto, and J.~Daunizeau, ``Dem: a variational
   treatment of dynamic systems,'' {\em Neuroimage}, vol.~41, no.~3,
   pp.~849--885, 2008.
-
-\bibitem{friston2010generalised}
-K.~Friston, K.~Stephan, B.~Li, and J.~Daunizeau, ``Generalised filtering,''
-  {\em Mathematical Problems in Engineering}, vol.~2010, 2010.
 
 \bibitem{feldman2010attention}
 H.~Feldman and K.~J. Friston, ``Attention, uncertainty, and free-energy,'' {\em

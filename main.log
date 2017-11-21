@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 SEP 2017 21:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 NOV 2017 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1186,42 +1186,40 @@ File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.4)
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (578.15999pt) is ignored.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 30.
+Package hyperref Info: Option `colorlinks' set `true' on input line 31.
 \@input{python_highlighting.aux}
 \openout2 = `python_highlighting.aux'.
 
 (./python_highlighting.tex)
 \c@exmp=\count190
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 85.
+h' as default language. on input line 86.
 
 
 LaTeX Warning: Unused global option(s):
     [fancychapters].
 
 (./main.aux (./motivation.aux) (./probability.aux) (./information_theory.aux)
-(./neuroscience.aux) (./neural_networks.aux) (./graphical_models.aux
-
-LaTeX Warning: Label `fig: full_temporal_model' multiply defined.
-
-) (./representation_learning.aux) (./reinforcement_learning.aux)
-(./predictive_coding.aux) (./programming.aux) (./appendix.aux))
+(./neuroscience.aux) (./neural_networks.aux) (./graphical_models.aux)
+(./variational_inference.aux) (./representation_learning.aux)
+(./reinforcement_learning.aux) (./predictive_coding.aux) (./programming.aux)
+(./appendix.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1273,7 +1271,7 @@ LaTeX Font Info:    ... okay on input line 85.
 \everyMPtoPDFconversion=\toks43
 )
 \AtBeginShipoutBox=\box78
-Package hyperref Info: Link coloring ON on input line 85.
+Package hyperref Info: Link coloring ON on input line 86.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1282,9 +1280,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count198
 )
-LaTeX Info: Redefining \ref on input line 85.
-LaTeX Info: Redefining \pageref on input line 85.
-LaTeX Info: Redefining \nameref on input line 85.
+LaTeX Info: Redefining \ref on input line 86.
+LaTeX Info: Redefining \pageref on input line 86.
+LaTeX Info: Redefining \nameref on input line 86.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
@@ -1315,12 +1313,12 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+LaTeX Font Info:    Try loading font information for U+msa on input line 89.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+LaTeX Font Info:    Try loading font information for U+msb on input line 89.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1347,7 +1345,7 @@ Chapter 1.
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.95 \include{motivation}
+l.96 \include{motivation}
                           [1
 
 
@@ -1392,79 +1390,104 @@ Chapter 5.
 
  (./graphical_models.tex
 Chapter 6.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
+
+<images/graphical_models/full_dynamical_model.png, id=397, 832.10875pt x 489.83
+pt>
+File: images/graphical_models/full_dynamical_model.png Graphic file (type png)
+ <use images/graphical_models/full_dynamical_model.png>
+Package pdftex.def Info: images/graphical_models/full_dynamical_model.png used 
+on input line 29.
+(pdftex.def)             Requested size: 173.44865pt x 102.09749pt.
+
+<images/graphical_models/markov_dynamical_model.png, id=399, 833.1125pt x 490.8
+3376pt>
+File: images/graphical_models/markov_dynamical_model.png Graphic file (type png
+)
+ <use images/graphical_models/markov_dynamical_model.png>
+Package pdftex.def Info: images/graphical_models/markov_dynamical_model.png use
+d on input line 36.
+(pdftex.def)             Requested size: 173.44865pt x 102.18687pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 27--40
+ [][]  [] 
+ []
+
 [7
 
 
 
+] [8 <./images/graphical_models/full_dynamical_model.png> <./images/graphical_m
+odels/markov_dynamical_model.png>]
+<images/graphical_models/transform_of_variables.png, id=432, 820.06375pt x 426.
+59375pt>
+File: images/graphical_models/transform_of_variables.png Graphic file (type png
+)
+ <use images/graphical_models/transform_of_variables.png>
+Package pdftex.def Info: images/graphical_models/transform_of_variables.png use
+d on input line 103.
+(pdftex.def)             Requested size: 346.89731pt x 180.45699pt.
+ [9 <./images/graphical_models/transform_of_variables.png>]) [10]
+\openout2 = `variational_inference.aux'.
+
+
+(./variational_inference.tex
+Chapter 7.
+[11
+
+
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
 
-<images/graphical_models/normalizing_flows.png, id=371, 293.095pt x 82.3075pt>
+<images/graphical_models/normalizing_flows.png, id=481, 293.095pt x 82.3075pt>
 File: images/graphical_models/normalizing_flows.png Graphic file (type png)
 
 <use images/graphical_models/normalizing_flows.png>
 Package pdftex.def Info: images/graphical_models/normalizing_flows.png used on 
-input line 106.
+input line 102.
 (pdftex.def)             Requested size: 260.17464pt x 73.06253pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8] [9 <./images/graphical_models/normalizing_flows.png>]
-<images/graphical_models/full_temporal_model.png, id=410, 744.7825pt x 479.7925
-pt>
-File: images/graphical_models/full_temporal_model.png Graphic file (type png)
- <use images/graphical_models/full_temporal_model.png>
-Package pdftex.def Info: images/graphical_models/full_temporal_model.png used o
-n input line 171.
-(pdftex.def)             Requested size: 216.81pt x 139.67068pt.
- [10 <./images/graphical_models/full_temporal_model.png>]) [11]
+[12] [13 <./images/graphical_models/normalizing_flows.png>] [14]) [15]
 \openout2 = `representation_learning.aux'.
 
- (./representation_learning.tex
-Chapter 7.
-[12
+
+(./representation_learning.tex
+Chapter 8.
+[16
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
-
- []
-
-) [13]
+] [17]) [18] [19]
 \openout2 = `reinforcement_learning.aux'.
 
  (./reinforcement_learning.tex
-Chapter 8.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
- [14
+Chapter 9.
+[20
 
 
 
-] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 122--124
+] [21] [22] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
-
- []
-
-) [17]
+) [25]
 \openout2 = `predictive_coding.aux'.
 
  (./predictive_coding.tex
-Chapter 9.
+Chapter 10.
 
 Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
@@ -1500,7 +1523,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-[18
+[26
 
 
 
@@ -1515,7 +1538,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--37
  []
 
 
-<images/predictive_coding/simple_latent_graphical_model.png, id=537, 185.69376p
+<images/predictive_coding/simple_latent_graphical_model.png, id=731, 185.69376p
 t x 389.455pt>
 File: images/predictive_coding/simple_latent_graphical_model.png Graphic file (
 type png)
@@ -1524,7 +1547,7 @@ type png)
 Package pdftex.def Info: images/predictive_coding/simple_latent_graphical_model
 .png used on input line 46.
 (pdftex.def)             Requested size: 65.04034pt x 136.41231pt.
- [19 <./images/predictive_coding/simple_latent_graphical_model.png>] [20]
+ [27 <./images/predictive_coding/simple_latent_graphical_model.png>] [28]
 Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
@@ -1544,11 +1567,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--155
 
  []
 
-) [21]
+) [29]
 \openout2 = `programming.aux'.
 
  (./programming.tex
-Chapter 10.
+Chapter 11.
 
 Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
@@ -1556,7 +1579,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
-) [22
+) [30
 
 
 
@@ -1567,40 +1590,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--80
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 97.
-[23]) [24] (./main.bbl [25
+[31]) [32] (./main.bbl [33
 
 
-] [26]) [27]
+] [34] [35]) [36]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 Appendix A.
-) [28
+) [37
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
  (./main.aux (./motivation.aux) (./probability.aux)
 (./information_theory.aux) (./neuroscience.aux) (./neural_networks.aux)
-(./graphical_models.aux) (./representation_learning.aux)
-(./reinforcement_learning.aux) (./predictive_coding.aux) (./programming.aux)
-(./appendix.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
+(./graphical_models.aux) (./variational_inference.aux)
+(./representation_learning.aux) (./reinforcement_learning.aux)
+(./predictive_coding.aux) (./programming.aux) (./appendix.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 329D2A8148B373280268FCF78BF48039;3770.
+(rerunfilecheck)             Checksum: EB5981EB1903628561826E210481EE55;4250.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 31553 strings out of 493089
- 644356 string characters out of 6134842
- 745371 words of memory out of 5000000
- 34228 multiletter control sequences out of 15000+600000
+ 31714 strings out of 493089
+ 647557 string characters out of 6134842
+ 748055 words of memory out of 5000000
+ 34294 multiletter control sequences out of 15000+600000
  20693 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,14n,71p,10361b,1216s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1608,32 +1631,33 @@ Here is how much of TeX's memory you used:
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
 usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (31 pages, 579379 bytes).
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (40 pages, 1157956 bytes).
 PDF statistics:
- 793 PDF objects out of 1000 (max. 8388607)
- 718 compressed objects within 8 object streams
- 231 named destinations out of 1000 (max. 500000)
- 484 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1011 PDF objects out of 1200 (max. 8388607)
+ 919 compressed objects within 10 object streams
+ 317 named destinations out of 1000 (max. 500000)
+ 550 words of extra memory for PDF output out of 10000 (max. 10000000)
 

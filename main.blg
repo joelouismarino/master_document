@@ -7,6 +7,7 @@ A level-1 auxiliary file: information_theory.aux
 A level-1 auxiliary file: neuroscience.aux
 A level-1 auxiliary file: neural_networks.aux
 A level-1 auxiliary file: graphical_models.aux
+A level-1 auxiliary file: variational_inference.aux
 A level-1 auxiliary file: representation_learning.aux
 A level-1 auxiliary file: reinforcement_learning.aux
 A level-1 auxiliary file: predictive_coding.aux
@@ -16,45 +17,46 @@ A level-1 auxiliary file: appendix.aux
 Database file #1: main.bib
 Warning--empty journal in kingma2016improved
 Warning--can't use both volume and number fields in sutton1998reinforcement
-You've used 33 entries,
+Warning--empty journal in berlyne1965structure
+You've used 50 entries,
             1876 wiz_defined-function locations,
-            676 strings with 9442 characters,
-and the built_in function-call counts, 9004 in all, are:
-= -- 881
-> -- 392
+            759 strings with 12283 characters,
+and the built_in function-call counts, 13292 in all, are:
+= -- 1293
+> -- 557
 < -- 0
-+ -- 144
-- -- 111
-* -- 656
-:= -- 1299
-add.period$ -- 35
-call.type$ -- 33
-change.case$ -- 31
++ -- 206
+- -- 156
+* -- 939
+:= -- 1893
+add.period$ -- 54
+call.type$ -- 50
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 463
-empty$ -- 823
-format.name$ -- 111
-if$ -- 2167
+cite$ -- 53
+duplicate$ -- 708
+empty$ -- 1262
+format.name$ -- 156
+if$ -- 3220
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 35
-newline$ -- 104
-num.names$ -- 33
-pop$ -- 93
+int.to.str$ -- 50
+missing$ -- 54
+newline$ -- 157
+num.names$ -- 50
+pop$ -- 170
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 300
+skip$ -- 444
 stack$ -- 0
-substring$ -- 589
-swap$ -- 193
+substring$ -- 836
+swap$ -- 279
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 85
-width$ -- 35
-write$ -- 320
-(There were 2 warnings)
+warning$ -- 3
+while$ -- 124
+width$ -- 52
+write$ -- 479
+(There were 3 warnings)

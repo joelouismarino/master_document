@@ -117,12 +117,65 @@ A_t = \text{argmax}_a Q_t (a)
 \subsection{Actor-Critic Methods}
 
 
-\section{Intrinsically Motivated RL}
+\section{Intrinsic Motivation}
 
-\cite{barto2004intrinsically} use internal motivation, along with an option framework, to learn a collection of hierarchical skills.
-\newline
+Intrinsic motivation is to reinforcement learning as unsupervised learning is to supervised learning. By learning from general purpose signals that connect the perception-action loop, intrinsic motivation can allow an agent to learn how to perceive and act even in the presence of a sparse or non-existent reward signal. This can dramatically speed up learning when an environmental reward signal is encountered. In \cite{oudeyer2008can}, the authors characterize intrinsic motivation using the concept of \textit{collative variables} \cite{berlyne1965structure}, which refer to various measures of subjective uncertainty, such as novelty, surprise, ambiguity, complexity, etc., all of which can be expressed in terms of information theoretic quantities. The computational landscape described in \cite{oudeyer2008can} consists of
+\begin{enumerate}
+	\item \textbf{Knowledge based models} involve comparisons between predicted sensorimotor states from an internal model and the actual states experienced
+	\item \textbf{Competence based models} involve comparisons between self-generated goals and the extent to which they are actually reached
+	\item \textbf{Morphological models} involve finding relationships between multiple sensorimotor channels which are not based on the agent's long-term knowledge or competence
+\end{enumerate}
+A majority of intrinsic motivation approaches fall into the first category, which is the focus of this section. This includes measures such as Bayesian surprise \cite{itti2006bayesian}, curiosity \cite{schmidhuber2010formal}, prediction errors \cite{nelson2005finding, barto2004intrinsically}, and information theoretic measures \cite{klyubin2005empowerment, little2013learning, wissner2013causal}. 
 
-\noindent \cite{mohamed2015variational} use empowerment.
+\subsection{Empowerment}
+
+We can consider an agent's perception-action loop as a noisy communication channel: an agent performs actions, which can affect the environment and transmit information to the agent's sensory states. Ideally, an agent should be able to control and predict aspects of its environment, effectively communicating with itself through its own actions. \textbf{Empowerment} formalizes this notion, corresponding to the maximum mutual information (i.e. \textit{channel capacity}) between an agent's actions and its sensory states \cite{klyubin2005empowerment}. Denoting a sequence of $n$ actions starting at time step $t$ as $a^n_t \in A^n_t$ and the state at time $t$ as $S_t = s_t$, empowerment is expressed as
+\begin{equation}
+    \mathcal{E} (s_t) \equiv \max_{p (a^n_t | s_t)} I(A^n_t; S_{t+n}).
+    \label{eq: empowerment def}
+\end{equation}
+\noindent That is, given the distribution of all possible  $n$-step action sequences from the current state, empowerment is the maximum mutual information between an action sequence and the agent's corresponding sensory state $n$ time steps later. The conditional distribution $p (a^n_t | s_t)$ is the agent's policy. From the definition of mutual information, we can also write this as:
+\begin{equation}
+    \mathcal{E} (s_t) = \max_{p (a^n_t | s_t)} \mathbb{E}_{p(a^n_t , s_{t+n} | s_t)} \left[ \log \left( \frac{p(a^n_t , s_{t+n} | s_t)}{p (a^n_t | s_t) p (s_{t+n} | s_t)} \right) \right]
+    \label{eq: empowerment def 2}
+\end{equation}
+Note that empowerment is only concerned with the \textit{capacity} to affect one's own sensory states, not the actual action sequence performed. 
+
+From eqs. \ref{eq: empowerment def} and \ref{eq: empowerment def 2}, there are three methods by which an agent can increase empowerment:
+\begin{enumerate}
+    \item attempt to reach states where $\mathcal{E} (s_t)$ is high, i.e. where $p(s_{t+n} | a^n_t, s_t)$ is less noisy,
+    \item modify one's sensors or perception model to improve empowerment, i.e. forming a better state representation where different environmental states can be discriminated,
+    \item modify one's actuators or policy model to improve empowerment, i.e. taking better actions that result in specific environmental states.
+\end{enumerate}
+\noindent The first method operates over shorter time horizons and is similar to \textit{inference}, in which an agent changes its current states (and/or actions). The second and third methods operate over longer time horizons and are similar to \textit{learning}, in which an agent changes its model parameters.
+
+\subsubsection{Variational Lower Bound on Empowerment}
+Rewriting $p(a^n_t , s_{t+n} | s_t) = p(s_{t+n} | a^n_t, s_t) p( a^n_t | s_t)$, we see that the expectation in eq. \ref{eq: empowerment def 2} involves marginalizing over the environment dynamics $p(s_{t+n} | a^n_t , s_t)$. Even if this dynamics model were known, computing the mutual information would be intractable for long time horizons $n$ or complex environments with many states and actions. Instead, we can use a variational distribution over actions, $q(a^n_t | s_{t+n}, s_t)$, to induce a lower bound on the mutual information, then maximize this lower bound \cite{barber2003algorithm}. The mutual information can be rewritten as
+\begin{equation}
+    I(A^n_t ; S_{t+n}) = H(A^n_t) - H(A^n_t | S_{t+n}).
+\end{equation}
+The conditional entropy is bounded by
+\begin{equation}
+    H(A^n_t | S_{t+n}) \leq - \mathbb{E}_{p(a^n_t , s_{t+n} | s_t)} \left[ \log q(a^n_t | s_{t+n}, s_t) \right].
+\end{equation}
+Therefore, the mutual information is bounded by
+\begin{equation}
+    I(A^n_t ; S_{t+n}) \geq H(A^n_t) + \mathbb{E}_{p(a^n_t , s_{t+n} | s_t)} \left[ \log q(a^n_t | s_{t+n}, s_t) \right],
+\end{equation}
+\begin{equation}
+    I(A^n_t ; S_{t+n}) \geq H(A^n_t) + \mathbb{E}_{p(s_{t+n} | a^n_t , s_t) p(a^n_t | s_t)} \left[ \log q(a^n_t | s_{t+n}, s_t) \right].
+\end{equation}
+The set-up has an intuitive interpretation \cite{barber2003algorithm, mohamed2015variational}. The marginal action sequence distribution $p(a^n_t | s_t)$ can be regarded as a \textit{source} or \textit{exploration} distribution over which we draw actions, i.e. the policy. Upon selecting an action sequence, the distribution $p(s_{t+n} | a^n_t , s_t)$ can be regarded as an \textit{encoder} or \textit{transition} distribution that maps an action sequence to a future state. The variational distribution $q(a^n_t | s_{t+n}, s_t)$ then acts as a \textit{decoder} or \textit{planning} distribution, mapping some future state back to an action sequence.
+
+Having derived a lower bound on the mutual information, empowerment is approximately calculated by maximizing over the parameters of the distributions $p(a^n_t | s_t)$ and $q(a^n_t | s_{t+n}, s_t)$:
+\begin{equation}
+    \mathcal{E} (s_t) = \max_{p (a^n_t | s_t), q(a^n_t | s_{t+n}, s_t)} \left( H(A^n_t) + \mathbb{E}_{p(a^n_t , s_{t+n} | s_t)} \left[ \log q(a^n_t | s_{t+n}, s_t) \right] \right).
+    \label{eq: IM equation}
+\end{equation}
+When performed using alternating optimization, this is referred to as the information maximization (IM) algorithm \cite{barber2003algorithm}. It is noted in \cite{mohamed2015variational} that eq. \ref{eq: IM equation} can be difficult to optimize. The authors address this by placing a constraint on $H(A^n_t)$, essentially re-weighting the entropy term.
+
+
+\cite{barto2004intrinsically} use intrinsic motivation, along with an option framework, to learn a collection of hierarchical skills.
 \newline
 
 \noindent \cite{gregor2016variational} introduce variational intrinsic control within the option framework.

@@ -5,3 +5,5 @@
 *.dvi
 *.out
 *.blg
+*.DS_Store
+*gitignore~

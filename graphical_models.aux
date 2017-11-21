@@ -1,44 +1,46 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\zref@newlabel[2]{}
+\citation{sarkka2013bayesian}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Graphical Models}{7}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Basics}{7}{section.6.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Variational Inference}{7}{section.6.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Inference as Optimization: Deriving the ELBO}{7}{subsection.6.2.1}}
-\newlabel{eq: bayes rule}{{6.1}{7}{Inference as Optimization: Deriving the ELBO}{equation.6.2.1}{}}
-\newlabel{eq: marginalize}{{6.2}{7}{Inference as Optimization: Deriving the ELBO}{equation.6.2.2}{}}
-\newlabel{eq: elbo derivation 1}{{6.3}{7}{Inference as Optimization: Deriving the ELBO}{equation.6.2.3}{}}
-\newlabel{eq: elbo derivation 2}{{6.4}{7}{Inference as Optimization: Deriving the ELBO}{equation.6.2.4}{}}
-\citation{rezende2015variational}
-\citation{rezende2015variational}
-\citation{rezende2015variational}
-\newlabel{eq: elbo derivation 3}{{6.5}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.5}{}}
-\newlabel{eq: elbo derivation 4}{{6.6}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.6}{}}
-\newlabel{eq: elbo derivation 5}{{6.7}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.7}{}}
-\newlabel{eq: elbo derivation 6}{{6.8}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.8}{}}
-\newlabel{eq: elbo derivation 7}{{6.9}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.9}{}}
-\newlabel{eq: elbo derivation 8}{{6.10}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.10}{}}
-\newlabel{eq: elbo derivation 9}{{6.11}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.11}{}}
-\newlabel{eq: elbo derivation 10}{{6.12}{8}{Inference as Optimization: Deriving the ELBO}{equation.6.2.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Normalizing Flows}{8}{subsection.6.2.2}}
-\citation{rezende2015variational}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Normalizing flows applied to a 2D isotropic Gaussian, using transformations of the form given in eq. \ref  {eq: normalizing flows transformation}. Increasing the flow length $K$ allows for more flexible approximate posterior distributions. Figure reproduced from \cite  {rezende2015variational}.\relax }}{9}{figure.caption.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Dynamical Directed Latent Variable Models}{7}{section.6.2}}
+\newlabel{sec: dynamic directed latent variable models}{{6.2}{7}{Dynamical Directed Latent Variable Models}{section.6.2}{}}
+\newlabel{eq: general dynamics model}{{6.1}{7}{Dynamical Directed Latent Variable Models}{equation.6.2.1}{}}
+\newlabel{eq: markov dynamics model}{{6.2}{7}{Dynamical Directed Latent Variable Models}{equation.6.2.2}{}}
+\citation{kalman1961new}
+\citation{chung2015recurrent}
+\citation{fraccaro2016sequential}
+\citation{gemici2017generative}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig: full_temporal_model}{{6.1}{9}{Normalizing flows applied to a 2D isotropic Gaussian, using transformations of the form given in eq. \ref {eq: normalizing flows transformation}. Increasing the flow length $K$ allows for more flexible approximate posterior distributions. Figure reproduced from \cite {rezende2015variational}.\relax }{figure.caption.2}{}}
-\newlabel{eq: normalizing flows transformation}{{6.15}{9}{Normalizing Flows}{equation.6.2.15}{}}
-\newlabel{eq: norm flows lower bound 1}{{6.17}{9}{Normalizing Flows}{equation.6.2.17}{}}
-\newlabel{eq: norm flows lower bound 2}{{6.18}{9}{Normalizing Flows}{equation.6.2.18}{}}
-\citation{kingma2016improved}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Latent Variable Models}{10}{section.6.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Temporal Latent Variable Models}{10}{subsection.6.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Simplified graphical model representation of temporal latent variable model with all connections present. Note that we're assuming the `arrow of time' points forward; variables can only affect other variables at the current time step or at future time steps. The parameters $\theta $ have been omitted for clarity.\relax }}{10}{figure.caption.3}}
-\newlabel{fig: full_temporal_model}{{6.2}{10}{Simplified graphical model representation of temporal latent variable model with all connections present. Note that we're assuming the `arrow of time' points forward; variables can only affect other variables at the current time step or at future time steps. The parameters $\theta $ have been omitted for clarity.\relax }{figure.caption.3}{}}
+\newlabel{fig: full_dynamical_model}{{6.1a}{8}{\relax }{figure.caption.2}{}}
+\newlabel{sub@fig: full_dynamical_model}{{a}{8}{\relax }{figure.caption.2}{}}
+\newlabel{fig: markov_dynamical_model}{{6.1b}{8}{\relax }{figure.caption.2}{}}
+\newlabel{sub@fig: markov_dynamical_model}{{b}{8}{\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Plate notation diagrams for dynamical latent variable models with (a) all temporal dependencies and (b) the Markov assumption. Plates denote that there are $N$ example sequences. Parameters $\theta $ have been omitted for clarity.\relax }}{8}{figure.caption.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Bayesian Filtering}{8}{subsection.6.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Beyond the Markov Assumption}{8}{subsection.6.2.2}}
+\citation{friston2010generalised}
+\citation{dinh2016density}
+\citation{dinh2016density}
+\citation{dinh2016density}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Transformation of Variables}{9}{section.6.3}}
+\newlabel{sec: transformation of variables}{{6.3}{9}{Transformation of Variables}{section.6.3}{}}
+\newlabel{eq: real nvp transform of variables 1}{{6.6}{9}{Transformation of Variables}{equation.6.3.6}{}}
+\newlabel{eq: real nvp transform of variables 2}{{6.7}{9}{Transformation of Variables}{equation.6.3.7}{}}
+\newlabel{eq: real nvp transform of variables 3}{{6.8}{9}{Transformation of Variables}{equation.6.3.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Inference and generation through transformation of variables in 2D. The invertible mapping between the observed and latent variables warps the respective spaces. Reproduced from \cite  {dinh2016density}.\relax }}{9}{figure.caption.3}}
+\newlabel{fig: transform of variables}{{6.2}{9}{Inference and generation through transformation of variables in 2D. The invertible mapping between the observed and latent variables warps the respective spaces. Reproduced from \cite {dinh2016density}.\relax }{figure.caption.3}{}}
+\citation{dinh2016density}
+\citation{dinh2014nice}
+\newlabel{eq: real nvp mapping 1}{{6.9}{10}{Transformation of Variables}{equation.6.3.9}{}}
+\newlabel{eq: real nvp mapping 2}{{6.10}{10}{Transformation of Variables}{equation.6.3.10}{}}
 \@setckpt{graphical_models}{
-\setcounter{page}{12}
-\setcounter{equation}{23}
-\setcounter{enumi}{0}
+\setcounter{page}{11}
+\setcounter{equation}{14}
+\setcounter{enumi}{2}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -47,14 +49,14 @@
 \setcounter{part}{0}
 \setcounter{chapter}{6}
 \setcounter{section}{3}
-\setcounter{subsection}{1}
+\setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
 \setcounter{figure}{2}
 \setcounter{table}{0}
 \setcounter{lstnumber}{1}
-\setcounter{Item}{0}
+\setcounter{Item}{2}
 \setcounter{Hfootnote}{1}
 \setcounter{bookmark@seq@number}{25}
 \setcounter{cnltx@tmpa}{0}
@@ -66,5 +68,5 @@
 \setcounter{subtable}{0}
 \setcounter{exmp}{0}
 \setcounter{lstlisting}{0}
-\setcounter{section@level}{2}
+\setcounter{section@level}{1}
 }
