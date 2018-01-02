@@ -32,10 +32,42 @@ Predictive coding claims that sensory processing, i.e. perception, is fundamenta
 \noindent \cite{feldman2010attention} claims that attention can be formulated as the adjustment of prior precisions in the predictive coding model.
 \newline
 
-\noindent \cite{friston2011action}, \cite{friston2013anatomy} , \cite{friston2015active} \cite{friston2016active_process}, \cite{friston2016active} discuss \textit{active inference}.
-\newline
-
 \section{The Static Setting}
+
+\subsection{With a free-form distribution}
+
+We start with the general presentation from \cite{friston2008DEM}. We have some latent parameters $\vartheta$, which through some model $m$, generate observations $\mathbf{x}$. Variational inference allows us to express the log-evidence as
+\begin{equation}
+	\log p (\mathbf{x} | m) = D_{KL} ( q (\vartheta) || p (\vartheta | \mathbf{x} , m)) + \mathcal{F},
+\end{equation}
+where $q (\vartheta)$ is an approximate posterior distribution, $p (\vartheta | \mathbf{x} , m)$ is the true posterior, and $\mathcal{F}$ is the (negative) free energy, which can be expressed as
+\begin{equation}
+	\mathcal{F} \equiv \mathbb{E}_{q (\vartheta)} \left[ \log p (\mathbf{x} , \vartheta) - \log q (\vartheta) \right].
+\end{equation}
+Because KL-divergence is non-negative, $\mathcal{F}$ is a lower bound on the log-evidence. This bound is tight if and only if $q (\vartheta)$ is the true posterior. That is, because the log-evidence does not depend on $q (\vartheta)$, we can minimize the KL-divergence term, thereby forming a closer approximation to the true posterior, by maximizing $\mathcal{F}$ w.r.t. $q (\vartheta)$.
+
+Often, we assume that the approximate posterior fractorizes in some way,
+\begin{equation}
+	q (\vartheta) = \prod_i q (\vartheta^i).
+\end{equation}
+This factorization introduces independencies over states, parameters, noise variables, etc. With a free-form approximate posterior, the free energy is maximized w.r.t. $q (\vartheta^i)$ when
+\begin{equation}
+	q (\vartheta^i) = \frac{1}{\mathcal{Z}^i} \exp (V(\vartheta^i)),
+	\label{eq: optimal approximate posterior}
+\end{equation}
+where the variational energy $V(\vartheta^i)$ is defined as
+\begin{equation}
+	V(\vartheta^i) \equiv \mathbb{E}_{q (\vartheta^{\neg i})} \left[ p ( \mathbf{x} , \vartheta) \right],
+\end{equation}
+and where $\vartheta^{\neg i}$ denotes the set of parameters not in the $i^\text{th}$ partition. $\mathcal{Z}^i$ is the normalization factor for the $i^\text{th}$ partition. Equation \ref{eq: optimal approximate posterior} can be shown as follows. The Fundamental Lemma of variational calculus states that $\mathcal{F}$ is maximized w.r.t. $q (\vartheta^i)$ if and only if
+\begin{equation}
+	\delta_q (\vartheta^i) \mathcal{F} = 0 \Leftrightarrow \partial_{q (\vartheta^i)} f^i = 0
+\end{equation}
+where
+\begin{equation}
+	\int f^i d \vartheta^i = \mathcal{F}
+\end{equation}
+
 
 \subsection{MAP State Estimation in a One--Level Model}
 
@@ -131,11 +163,21 @@ We would like to extend this single dimensional model to handle latent and obser
 	\label{eq: multi-dimensional gradient}
 \end{equation}
 
-\section{The Dynamic Setting}
+\section{Predictive Coding in Dynamical Models}
+
+Predictive coding in dynamical latent variable models is described in detail in \cite{friston2008variational, friston2008DEM, friston2010generalised}. Friston distinguishes between various approaches:
+\begin{itemize}
+	\item \textbf{Variational Filtering} \cite{friston2008variational} uses a free-form approximate posterior, modeled as an ensemble of particles. Parameters are assumed to be stationary.
+	\item \textbf{Dynamical Expectation Maximization (DEM)}  \cite{friston2008DEM} uses a fixed-form approximate posterior, making the Laplace approximation. Parameters are again assumed to be stationary.
+	\item \textbf{Generalized Filtering} \cite{friston2010generalised} also makes the Laplace approximation, but the parameters are now estimated online.
+\end{itemize}
+The main technical details behind these approaches are largely the same. Here, we reproduce the overall presentation given in \cite{friston2008DEM}. 
+
+\subsection{Derivation}
+
+\subsection{Models}
 
 \section{Attention}
-
-\section{Active Inference}
 
 \section{Neural Implementation}
 

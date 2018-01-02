@@ -119,7 +119,7 @@ A_t = \text{argmax}_a Q_t (a)
 
 \section{Intrinsic Motivation}
 
-Intrinsic motivation is to reinforcement learning as unsupervised learning is to supervised learning. By learning from general purpose signals that connect the perception-action loop, intrinsic motivation can allow an agent to learn how to perceive and act even in the presence of a sparse or non-existent reward signal. This can dramatically speed up learning when an environmental reward signal is encountered. In \cite{oudeyer2008can}, the authors characterize intrinsic motivation using the concept of \textit{collative variables} \cite{berlyne1965structure}, which refer to various measures of subjective uncertainty, such as novelty, surprise, ambiguity, complexity, etc., all of which can be expressed in terms of information theoretic quantities. The computational landscape described in \cite{oudeyer2008can} consists of
+Intrinsic motivation is to reinforcement learning as unsupervised learning is to supervised learning. By learning from general purpose signals that connect the perception-action loop, intrinsic motivation can allow an agent to learn how to perceive and act even in the presence of a sparse or non-existent reward signal. This can dramatically speed up learning when an environmental reward signal is encountered. In \cite{oudeyer2008can}, the authors characterize intrinsic motivation using the concept of \textit{collative variables} \cite{berlyne1965structure}, which refer to various measures of subjective uncertainty, such as novelty, surprise, ambiguity, complexity, etc., all of which can be expressed in terms of information theoretic quantities. The computational landscape described in \cite{oudeyer2008can} consists of:
 \begin{enumerate}
 	\item \textbf{Knowledge based models} involve comparisons between predicted sensorimotor states from an internal model and the actual states experienced
 	\item \textbf{Competence based models} involve comparisons between self-generated goals and the extent to which they are actually reached
@@ -174,9 +174,15 @@ Having derived a lower bound on the mutual information, empowerment is approxima
 \end{equation}
 When performed using alternating optimization, this is referred to as the information maximization (IM) algorithm \cite{barber2003algorithm}. It is noted in \cite{mohamed2015variational} that eq. \ref{eq: IM equation} can be difficult to optimize. The authors address this by placing a constraint on $H(A^n_t)$, essentially re-weighting the entropy term.
 
+\subsection{Uncertainty Motivation}
 
-\cite{barto2004intrinsically} use intrinsic motivation, along with an option framework, to learn a collection of hierarchical skills.
-\newline
+\subsection{Information Gain Motivation}
+
+\subsection{Predictive Novelty Motivation}
+
+Predictive novelty motivation assigns an intrinsically motivated reward that is proportional to the agent's prediction error on an observed sensorimotor state. This can be expressed in probabilistic or non-probabilistic terms. The reward of the novel sensorimotor state will drive the agent to repeatedly explore that state, while at the same time, the agent's internal model improves to minimize prediction error, thereby reducing the novelty of the state. This approach, along with the option framework, is used in \cite{barto2004intrinsically} to learn a hierarchical collection of skills, allowing the agent to more effectively optimize a sparse extrinsic reward signal. It should also be noted that one must be careful in assigning rewards to prediction errors, as extreme novelty (i.e. a random, unpredictable environment) should have an aversive effect on the agent.
+
+\subsection{Learning Progress Motivation}
 
 \noindent \cite{gregor2016variational} introduce variational intrinsic control within the option framework.
 
