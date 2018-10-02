@@ -1,0 +1,92 @@
+\chapter{Active Inference}
+\label{chap: active inference}
+
+The main idea behind Friston's more recent formulations of active inference is to explicitly set the model's prior over actions such that they minimize expected free energy (or maximize negative expected free energy). We have observations $\mathbf{x}$, hidden states $\mathbf{z}$, and control states $\mathbf{u}$, each of which are sequences. In Friston's formulations, these variables take discrete values. The generative model defines a joint distribution over these variables: $p (\mathbf{x}, \mathbf{z}, \mathbf{u})$. In \cite{friston2015active}, the model is factorized as:
+\begin{equation}
+    p (\mathbf{x}, \mathbf{z}, \mathbf{u}, \gamma | \mathbf{a}) = p(\mathbf{x} | \mathbf{z}) p(\mathbf{z} | \mathbf{a}) p(\mathbf{u} | \gamma) p(\gamma),
+\end{equation}
+\begin{equation}
+    p(\mathbf{x} | \mathbf{z}) = p(\mathbf{x}_1 | \mathbf{z}_1) p(\mathbf{x}_2 | \mathbf{z}_2) \dots p(\mathbf{x}_t | \mathbf{z}_t),
+\end{equation}
+\begin{equation}
+    p(\mathbf{z} | \mathbf{a}) = p(\mathbf{z}_2 | \mathbf{z}_1 , \mathbf{a}_1) p(\mathbf{z}_3 | \mathbf{z}_2 , \mathbf{a}_2) \dots p(\mathbf{z}_t | \mathbf{z}_{t-1} , \mathbf{a}_{t-1}),
+\end{equation}
+\begin{equation}
+    p(\mathbf{u} | \gamma) = \sigma (\gamma \cdot \mathbf{Q} (\pi)),
+\end{equation}
+where $\mathbf{a}$ denotes past actions, $\sigma$ is the softmax function, and $\mathbf{Q} (\pi)$ is the negative expected free energy under policy $\pi$, which is defined as
+\begin{equation}
+    p(\mathbf{u} | \gamma) = \sigma (\gamma \cdot \mathbf{Q} (\pi)) = \sigma (\gamma \cdot \left[ \mathbf{Q}_{t+1} (\pi) + \mathbf{Q}_{t+2} (\pi) + \dots + \mathbf{Q}_T (\pi) \right] ),
+\end{equation}
+\begin{equation}
+    \mathbf{Q}_\tau (\pi) \equiv \mathbb{E}_{q (\mathbf{x}_\tau , \mathbf{z}_\tau | \pi)} \left[ \log p(\mathbf{x}_\tau , \mathbf{z}_\tau | \pi) \right] + \mathbb{H} \left[ q (\mathbf{z}_\tau | \pi) \right].
+\end{equation}
+Here, $q (\mathbf{x}_\tau , \mathbf{z}_\tau | \pi)$ is the \textit{predictive posterior}, which is defined as
+\begin{equation}
+    q (\mathbf{x}_\tau , \mathbf{z}_\tau | \pi) = \mathbb{E}_{q(\mathbf{z}_\tau) } \left[ p (\mathbf{x}_\tau , \mathbf{z}_\tau | \mathbf{z}_t , \pi) \right].
+\end{equation}
+The expected free energy at time step $\tau$ can be written as
+\begin{equation}
+    \mathbf{Q}_\tau (\pi) \equiv \mathbb{E}_{q (\mathbf{x}_\tau , \mathbf{z}_\tau | \pi)} \left[ \log p(\mathbf{x}_\tau , \mathbf{z}_\tau | \pi) - \log q (\mathbf{z}_\tau | \pi) \right].
+\end{equation}
+
+
+\section{Introduction}
+
+Active inference \cite{friston2009reinforcement} entails using action to reduce uncertainty or surprise. We have an agent within an environment. The agent maintains a generative model of the environment and itself, which is specified by the joint distribution $p_\theta (\mathbf{x}_{1:T}, \mathbf{z}_{1:T}, \mathbf{u}_{1:T})$, over sequences of observations $\mathbf{x}$, hidden states $\mathbf{z}$, and control states $\mathbf{u}$. Observations and states can be discrete, continuous, etc. A general form of the model is given by
+\begin{equation}
+    p_\theta (\mathbf{x}_{1:T}, \mathbf{z}_{1:T}, \mathbf{u}_{1:T}) = \prod_{t=1}^T 
+\end{equation}
+
+
+In active inference, the agent updates its (posterior) beliefs over hidden and control states to minimize surprise, the time average of $-\log p_\theta (\mathbf{x})$. As this is typically intractable to evaluate due to integration over hidden and control states, one can resort to minimizing an upper bound on surprise, the variational free energy, $\mathcal{F}$, using an approximate posterior distribution, $q (\mathbf{z}, \mathbf{u} | \mathbf{x})$:
+\begin{equation}
+    q^*(\mathbf{z}, \mathbf{u} | \mathbf{x}) = \argmin_q \mathcal{F}.
+\end{equation}
+The agent's control states (\textit{actions}) and hidden states (\textit{perceptions}) are then sampled from this approximate posterior distribution. The free energy can be written in a number of ways:
+\begin{align}
+    \mathcal{F} & = \mathbb{E}_{q (\mathbf{z}, \mathbf{u} | \mathbf{x})} \left[ -\log p_\theta (\mathbf{x}, \mathbf{z}, \mathbf{u}) + \log q (\mathbf{z}, \mathbf{u} | \mathbf{x}) \right] \\
+    & =  D_{KL}(q (\mathbf{z}, \mathbf{u} | \mathbf{x}) || p_\theta (\mathbf{z}, \mathbf{u} | \mathbf{x})) - \log p_\theta (\mathbf{x}) \\
+    & = \mathbb{E}_{q (\mathbf{z}, \mathbf{u} | \mathbf{x})} \left[ -\log p_\theta (\mathbf{x} | \mathbf{z}, \mathbf{u}) \right] + D_{KL}(q (\mathbf{z}, \mathbf{u} | \mathbf{x}) || p_\theta (\mathbf{z}, \mathbf{u}))
+\end{align}
+The first equation expresses free energy as Gibbs energy and entropy. The second equation shows that free energy upper bounds surprise, because KL divergence is non-negative. The third equation expresses free energy as a trade-off between model accuracy (first term) vs. model complexity (second term). \cite{friston2013anatomy} proposes a particular form for the generative model, in which the observation and latent dynamics models are factorized as follows:
+\begin{equation}
+    p_\theta (\mathbf{x}, \mathbf{z}, \mathbf{u}) = p_\theta (\mathbf{x} | \mathbf{z}) p_\theta (\mathbf{z}, \mathbf{u}),
+\end{equation}
+where the observation model is factorized across time as
+\begin{equation}
+    p_\theta (\mathbf{x} | \mathbf{z}) = \prod_{t=1}^T p_\theta (\mathbf{x}_t | \mathbf{z}_t),
+\end{equation}
+and the latent dynamics model is factorized across time as
+\begin{equation}
+    p_\theta (\mathbf{z}, \mathbf{u}) = p_\theta (\mathbf{u} | \mathbf{z}) \prod_{t=1}^T p_\theta (\mathbf{z}_t | \mathbf{z}_{t-1}, \mathbf{u}_{t-1})
+\end{equation}
+\begin{equation}
+    \log p_\theta (\mathbf{u} | \mathbf{z}) = - \gamma \cdot D_{KL} (p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u}) || p_\theta (\mathbf{z}_{final}))
+    \label{eq: distribution over actions}
+\end{equation}
+where $\mathbf{z}_{final}$ is the final hidden state. Goals are represented using the prior over final states, $p_\theta (\mathbf{z}_{final})$, expressing the preferences over which states the agent prefers to be in. By minimizing the control states, $\mathbf{u}$, the agent can attempt to bring itself toward its prior distribution over states, given it's current hidden state, $\mathbf{z}$. An advanced agent would be able to
+\begin{itemize}
+    \item set its own priors over states, potentially to highly abstract states that are not directly involved with physical rewards,
+    \item optimize control states over long time horizons, making complex plans to achieve desired outcomes that are difficult to reach.
+\end{itemize}
+The specification of the distribution over actions (\ref{eq: distribution over actions}) can be decomposed as follows:
+\begin{align}
+    - D_{KL} (p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u}) || p_\theta (\mathbf{z}_{final})) & = \sum_{\mathbf{z}_{final}} p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u}) \log \frac{p_\theta (\mathbf{z}_{final})}{p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u})} \\
+    & = H \left[ p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u}) \right] + \sum_{\mathbf{z}_{final}} p_\theta (\mathbf{z}_{final} | \mathbf{z}, \mathbf{u}) \log p_\theta (\mathbf{z}_{final})
+\end{align}
+The first term in this final expression is the entropy over final hidden states, which specifies the extent to which the agent has explored the states resulting from the environment. By treating $\log p_\theta (\mathbf{z}_{final})$ as the extrinsic reward or value of the corresponding state, the second term in the expression can be understood as the expected utility achieved by the agent for executing control states $\mathbf{u}$. This expression encompasses the exploration (first term) vs. exploitation (second term) trade-off. Note that if the prior over final states is uniform, i.e. the agent has no extrinsic rewards, then $\log p_\theta (\mathbf{z}_{final})$ is constant and can be brought outside of the sum. Because probability distributions sum to one, the exploitation term is a constant, and the agent simply takes actions for exploration. When the prior over states is non-uniform, this will bias the agent toward control states that are not purely exploratory, but are instead reward-seeking.
+
+In more recent treatments, the formulation of active inference has been modified somewhat, where the KL divergence in eq. \ref{eq: distribution over actions} is replaced with the free energy. Thus, control states are selected to explicitly minimize free energy:
+\begin{equation}
+    \log p_\theta (\mathbf{u} | \mathbf{z}) = - \gamma \sum_t G_t (\mathbf{u})
+\end{equation}
+where $G_t (\mathbf{u})$ is the expected free energy for control states $\mathbf{u}$ at time $t$, defined as:
+\begin{equation}
+    G_t = \mathbb{E}_{q (\mathbf{z}, \mathbf{u} | \mathbf{x})} \left[  \right]
+\end{equation}
+
+
+\section{Literature Summary}
+
+\noindent \cite{friston2011action}, \cite{friston2013anatomy} , \cite{friston2015active} \cite{friston2016active_process}, \cite{friston2016active} discuss active inference.

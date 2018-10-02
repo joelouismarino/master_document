@@ -1,0 +1,72 @@
+\chapter{Probability \& Statistics}
+
+Why define a system in terms of probability? Probability allows us to estimating uncertainty arising from stochasticity
+\begin{itemize}
+    \item in the system itself,
+    \item in the measurement process, potentially the result of incomplete observability,
+    \item due to limitations in the model, such as discretization.
+\end{itemize}
+There are two main interpretations of probability. The \textbf{frequentist} approach considers probabilities as the \textit{frequency} of events occurring, calculated over past trials. The \textbf{Bayesian} approach considers probabilities as a specifying the \textit{uncertainty} of events. Under the Bayesian interpretation, probability is a subjective belief, whereas under the frequentist interpretation, probability is an objective frequency of occurring events. While the basic rules of probability are consistent in both approaches, the advantage of the Bayesian approach is that it allows one to model uncertainty even when past trials have not necessarily been observed, providing flexibility. By expressing probability in terms of uncertainty, the Bayesian approach is also deeply connected to information theory (Chapter \ref{chap: information theory}), bringing additional mathematical tools for analysis. 
+
+While probability gives us the tools to account for uncertainty in our estimates, it also brings a separate set of challenges associated with estimating various quantities. Rather than maintaining a single hypothesis about a quantity, probability often requires us to evaluate \textit{all} hypotheses. Instead of ``point estimates," we work with entire ``distributions." This creates computational difficulties stemming primarily from marginalization, i.e. summing or integrating over possible values. One common strategy for dealing with this is to forgo analytical estimates in favor of sampling-based estimates. In Chapter \ref{chap: variational inference}, we discuss variational inference, another technique for overcoming some of these issues.
+
+
+\section{Probability}
+
+Probabilities are defined for \textbf{random variables}, which can take either \textit{discrete} or \textit{continuous} values. A discrete variable could be whether or not a light switch is on, and a continuous variable could be the level of a light dimmer. A random variable only defines possible values that can be taken; to define the likelihood of the random variable taking each of the values, we must use a \textbf{probability distribution}. In the cases of the discrete and continuous random variables, the total probability of all values must sum to $1$ because the variable must take some value. The light switch must be on or off, and the light dimmer must be at some particular level. To accommodate this requirement, probabilities over discrete and continuous random variables must be handled differently, e.g. replacing summations with integrals, but the underlying rules of probability are identical in both cases.
+
+\subsection{Discrete Random Variables}
+
+Discrete random variables can take a finite or countably infinite number of values. Note that these values may not necessarily be numerical. In describing the probability over the values of a discrete random variable, we use a \textbf{probability mass function (PMF)}. A PMF, $P(x)$, is a function that maps discrete values of a random variable, $x$, to probabilities between $0$ and $1$, i.e.
+$$\forall x, 0 \leq P(x) \leq 1. $$
+Following our requirement that probability distributions must sum to $1$, we must ensure that
+$$ \sum_x P(x) = 1. $$
+We refer to a function meeting this requirement as being \textbf{normalized}. 
+
+\subsection{Continuous Random Variables}
+
+Continuous random variables take an uncountably infinite number of values, associated with a real value over some domain. To define the probability over this domain, we use a \textbf{probability density function (PDF)}. Unlike a PMF, a PDF, $p(x)$, is only required to be non-negative:
+$$ \forall x, 0 \leq p(x). $$
+Again, we must ensure that the total probability sums to $1$. Since we are dealing with a continuous domain, we must integrate:
+$$ \int p(x) dx = 1. $$
+Again, such a function is considered to be normalized. Note that $p(x)$ does not give the \textit{probability} of the value $x$, but rather, the probability \textit{density} at that point. In other words, with continuous random variables, we can only evaluate the probability of values in terms of intervals. In an infinitesimal interval, $\delta x$, around a point $x$, the probability is $p(x) \delta x$. More generally, we can quantify the probability mass within an interval $[a, b]$ as
+$$P_{[a,b]} = \int_a^b p(x) dx. $$
+In correspondence with physics, we can evaluate the probability \textit{mass} within an interval, i.e. \textit{volume}, by integrating the probability \textit{density} over that volume. This can also be accomplished by using the \textbf{cumulative density function (CDF)}, which is defined as
+$$ \textrm{CDF}(x^\prime) \equiv \int_{- \infty}^{x^\prime} p(x) dx. $$
+This allows us to quickly evaluate the probability within an interval as
+$$ P_{[a,b]} = \textrm{CDF}(b) - \textrm{CDF}(a). $$
+
+\subsection{Definitions and Rules}
+
+The \textbf{joint distribution} defines the probability of events \textit{jointly} occurring over multiple variables. For instance, with variables $A$ and $B$, the joint distribution $p(A=a,B=b)$ defines the probability that variable $A$ takes the value $a$ \textit{and} variable $B$ takes the value $b$. The joint distribution can decomposed as
+\begin{equation}
+    p(A,B) = p(A|B)p(B) = p(B|A)p(A).
+    \label{eq: def of joint prob}
+\end{equation}
+This decomposition is known as the \textbf{chain rule of probability}, and can be used to split any joint distribution into a series of \textbf{conditional} and \textbf{marginal distributions}. The conditional distribution defines the probability of an event in one variable occurring \textit{conditioned} on another event occurred in a different variable. Thus, $p(A=a | B=b)$ quantifies the probability that $A$ takes the value $a$ \textit{given} that $B$ takes the value $b$. Intuitively, this is defined as the probability of observing $a$ and $b$ together, divided by the probability of observing $b$ in general:
+\begin{equation}
+    p(A|B) = \frac{p(A,B)}{p(B)}.
+    \label{eq: def of cond prob}
+\end{equation}
+The denominator here is the marginal distribution, which is obtained from the joint distribution over the variables by \textit{marginalizing}, i.e. summing, over the values of the other variables. To obtain the marginal $p(A)$, we marginalize over the variable $B$:
+\begin{equation}
+    p(A) = \sum_b p(A, B=b) = \sum_b p(A | B=b) p(B=b).
+    \label{eq: def of marginal prob}
+\end{equation}
+From eq. \ref{eq: def of joint prob}, we can also jump directly to \textbf{Bayes' Rule}, which specifies one conditional probability, e.g. $p(A|B)$, in terms of the other conditional probability and the marginal distributions:
+\begin{equation}
+    p(A|B) = \frac{p(B|A)p(A)}{p(B)}.
+    \label{eq: bayes rule}
+\end{equation}
+
+\section{Common Distributions}
+
+\subsection{Probability Mass Functions}
+
+
+\subsection{Probability Density Functions}
+
+
+\subsection{Implicitly-Defined Distributions}
+
+Up until now, we have discussed probability distributions that have a well-defined analytical form. These are sometimes referred to as \textit{explicitly-defined} distributions, because the form can be written down explicitly. However, there are also probability distributions that do not have an analytical form. These distributions are often defined in terms of invertible \cite{dinh2014nice} or non-invertible \cite{goodfellow2014generative} transformations of samples from other, simpler distributions. As the transformed distributions can only be evaluated through their samples, they are referred to as \textit{implicitly-defined} distributions \cite{mohamed2016learning}. In general, these distributions offer greater flexibility over explicitly-defined distributions, however, there are also additional difficulties associated with learning these distributions.

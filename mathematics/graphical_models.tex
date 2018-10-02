@@ -1,9 +1,11 @@
-\chapter{Graphical Models}
+\chapter{Probabilistic Graphical Models}
+\label{chap: probabilistic graphical models}
 
-\section{Basics}
 
-\section{Dynamical Directed Latent Variable Models}
-\label{sec: dynamic directed latent variable models}
+\section{Directed Graphical Models}
+
+\subsection{Dynamical Latent Variable Models}
+\label{sec: dynamical latent variable models}
 
 To model a sequence of $T$ observations, $\mathbf{x}_{1:T}$, one can use a dynamical latent variable model, $p_\theta (\mathbf{x}_{1:T}, \mathbf{z}_{1:T})$, which models the joint distribution between $\mathbf{x}_{1:T}$ and a sequence of latent variables, $\mathbf{z}_{1:T}$, with parameters $\theta$. Using a directed graphical model, $p_\theta (\mathbf{x}_{1:T}, \mathbf{z}_{1:T})$ can be factorized into conditional joint distributions, $p_\theta (\mathbf{x}_t, \mathbf{z}_t | \mathbf{x}_{1:t-1}, \mathbf{z}_{1:t-1})$, at each time step $t$, which are conditioned on all preceding variables:
 \begin{equation}
@@ -40,7 +42,7 @@ A plate notation diagram for the updated model is shown in Figure \ref{fig: mark
     \caption{Plate notation diagrams for dynamical latent variable models with (a) all temporal dependencies and (b) the Markov assumption. Plates denote that there are $N$ example sequences. Parameters $\theta$ have been omitted for clarity.}
 \end{figure*}
 
-\subsection{Bayesian Filtering}
+\subsubsection{Bayesian Filtering}
 
 Dynamical directed latent variable models naturally lend themselves to a \textit{filtering} setting \cite{sarkka2013bayesian}, in which one computes the marginal posterior distribution, $p(\mathbf{z}_t | \mathbf{x}_{1:t})$, at each time step. This corresponds to estimating the current state of the system given all past observations. Under the Markov assumption (eq. \ref{eq: markov dynamics model}), we start with a latent prior, $p_\theta (\mathbf{z}_1)$, and compute the marginal posterior at some time step $t$ by recursively applying the following steps:
 \begin{enumerate}
@@ -72,13 +74,46 @@ When $p_\theta (\mathbf{x}_t | \mathbf{z}_t)$ and $p_\theta (\mathbf{z}_t | \mat
 %	p(z_{0:T} | x_{1:T}) = \frac{p(x_{1:T} | z_{0:T}) p(z_{0:T})}{p(x_{1:T})}.
 % \end{equation}
 
-\subsection{Beyond the Markov Assumption}
+\subsubsection{Beyond the Markov Assumption}
 While drastically simplifying the model, the Markov assumption is often invalid in practical settings, where one commonly encounters partial observations (i.e. hidden information) or correlated observation noise across time. In such cases, the ``memoryless" or ``static world" properties of the Markov assumption no longer hold, requiring that we expand the model to condition on past variables. This can be accomplished through
 \begin{itemize}
 	\item conditioning on a concatenation of variables containing the recent trajectory,
 	\item memory mechanisms that selectively store state information \cite{chung2015recurrent, fraccaro2016sequential, gemici2017generative},
 	\item modeling the observations and latent variables in generalized coordinates \cite{friston2010generalised}.
 \end{itemize}
+
+\section{Undirected Graphical Models}
+\label{sec: undirected models}
+
+
+\section{Causal Models}
+\label{sec: causal models}
+
+\subsection{Observational vs. Interventional Distributions}
+
+This section is based on a blog post by Ferenc Husz\'ar\footnote{\texttt{http://www.inference.vc/untitled/}}. Say we have a joint probability distribution $p(x, y, z, \dots)$. Often, we are interested in conditional probabilities, for instance, how $y$ behaves given $x$. There are, in fact, two forms of this probability:
+\begin{itemize}
+    \item \textbf{Observational} $p(y | x)$: this is the probability of $Y = y$ given that I \textit{observe} $X = x$. This is the typical use of conditional probability in machine learning, where we simply use Bayes rule to marginalize over the joint distribution, i.e. $p(y | x) = \frac{p(y, x)}{p(x)}$.
+    \item \textbf{Interventional} $p(y | do(x))$: this is the probability of $Y=y$ given that I \textit{set} $X=x$. Here, we are intervening in the data generating process. Note that the data generating process is not the same as the joint distribution.
+\end{itemize}
+The observational and interventional conditional probabilities are not generally the same. Ferenc gives the simple example of a sensor monitoring the value of a given quantity, such as pressure. Observing the sensor reading allows one to infer the pressure. However, intervening to change the reading on the sensor will have no effect on the pressure. Hence, $p(y|x)$ and $p(y|do(x))$ are quite different. The first simply describes statistical relationships, whereas the second describes the second describes causal relationships. The observational conditional is often sufficient for many machine learning applications, but when dealing with tasks related to decision making or control, the interventional conditional is typically more useful.
+
+Like the observational conditional, the interventional conditional distribution, $p(y | do(x))$, is just a probability distribution that we can calculate using Bayes rule. The difference is that $p(y | do(x))$ is calculated from a separate \textit{interventional joint distribution}, $$p_{do(X=x)} (x, y, z, \dots).$$
+\noindent This is the joint distribution of the variables when we conduct randomized control experiments by intervening in the data generating process to set $X=x$. Even if it is impossible or unethical to conduct these intervention experiments, this joint distribution exists. One of the main points of causal modeling is estimating the interventional conditional when we only have observations.
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/graphical_models/Causality_-do-calculus-estimand--1-.png}
+    \caption{Pipeline of causal modeling with do-calculus. Often, we only have access to the observational joint distribution, $p(x, y, z, \dots)$ but want to estimate the interventional conditional $p(y | do(x))$. To do so, we must assume a causal model and use do-calculus to arrive at an estimated interventional conditional $\tilde{p}(y | do(x))$. Note that this may not always be feasible. Reproduced from \texttt{http://www.inference.vc/untitled/}.}
+    \label{fig: causal_model}
+\end{figure}
+
+\subsection{Causal Modeling \& Do-Calculus}
+
+Supervised learning is a great technique for estimating conditional distributions. Given a joint distribution of random variables, it is fairly straightforward to train a model to estimate the conditionals. This is true of both observational and interventional conditionals, assuming one has access to the appropriate joint distribution. Recall, however, that in many cases the joint distribution contains observations rather than interventions. How, then, can we estimate the interventional conditional if we don't have direct access to the interventional joint distribution? Doing this requires making further assumptions about the structure of the data generating process. That is, we must assume a \textit{causal model} of the data, which provides information that is not captured by the observational joint distribution alone. Arrows in causal models represent direct causal directions, while the absence of an arrow denotes a lack of direct casual influence.
+
+To estimate the interventional conditional distribution using the observational joint, one must ``mutilate" the assumed causal model to emulate the desired intervention. One then uses \textit{do-calculus} to attempt to estimate $p(y | do(x))$ from the conditionals and marginals of the observational joint distribution, yielding $\tilde{p}(y | do(x))$. Importantly, this approximation may or may not be \textit{identifiable}, depending on whether other variables in the joint distribution are observed. This pipeline is shown in Figure \ref{fig: causal_model}.
+
 
 \section{Transformation of Variables}
 \label{sec: transformation of variables}

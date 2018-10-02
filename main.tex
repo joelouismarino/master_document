@@ -28,11 +28,16 @@
     urlcolor=black
 }
 
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
 \setcounter{secnumdepth}{4}
 
 \definecolor{DarkerGreen}{RGB}{0,179,45}
 
 \include{python_highlighting}
+\addcontentsline{toc}{chapter}{Preface}
 
 \newtheorem{exmp}{Example}[section]
 
@@ -78,7 +83,7 @@
   tubnode/.style={midway, right=2pt},
 }
 
-\title{Compiled Notes}
+\title{Intelligence}
 \author{Joseph Marino}
 
 \begin{document}
@@ -91,18 +96,39 @@
 \newpage
 \pagenumbering{arabic}
 
-\include{motivation}
-\include{probability}
-\include{information_theory}
-\include{neuroscience}
-\include{neural_networks}
-\include{graphical_models}
-\include{variational_inference}
-\include{representation_learning}
-\include{reinforcement_learning}
+\include{preface}
+
+\part{Introduction}
+\include{introduction/intelligence}
+\include{introduction/embodied_intelligent_systems}
+
+\part{Mathematics}
+\include{mathematics/mathematical_basics}
+\include{mathematics/probability}
+\include{mathematics/information_theory}
+\include{mathematics/graphical_models}
+\include{mathematics/variational_inference}
+\include{mathematics/tools_and_tricks}
+
+\part{Neuroscience}
+\include{neuroscience/anatomy}
+\include{neuroscience/neurons}
+\include{neuroscience/neural_circuits}
+\include{neuroscience/computational_theories}
 \include{predictive_coding}
-\include{active_inference}
+
+\part{Machine Learning}
+\include{machine_learning/neural_networks}
+\include{machine_learning/representation_learning}
+\include{machine_learning/reinforcement_learning}
+\include{machine_learning/intrinsic_motivation}
+\include{machine_learning/active_inference}
+
+\part{Robotics}
+
+\part{Miscellaneous}
 \include{programming}
+
 \bibliographystyle{ieeetr}
 \bibliography{main}
 \appendix

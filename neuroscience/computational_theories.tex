@@ -1,0 +1,35 @@
+\chapter{Computational Theories of Neuroscience}
+\label{chap: computational theories of neuroscience}
+
+\section{Introduction}
+
+
+\section{Integrate \& Fire Neurons}
+
+
+
+\section{Canonical Neural Computations}
+
+\subsection{Linear Weighting}
+
+
+\subsection{Exponentiation}
+
+
+\subsection{Normalization}
+
+Normalization is a useful operation, ubiquitous in both biological nervous systems and machine learning systems. \cite{carandini2012normalization} reviews various forms of normalization that appear in different brain areas and species. They define (divisive) normalization as \textit{the computation in which the responses of neurons are divided by a common factor that typically includes the summed activity of a pool of neurons}. They point to examples of normalization in olfactory pathways, retinal contrast adaptation, V1, MT, V4, IT, medial superior temporal area (MST), auditory cortex, and lateral intraparietal area (LIP). They also point to a role of normalization in mediating attentional mechanisms, such as winner-take-all competition. The authors offer a number of reasons for the ubiquity of normalization, i.e. possible uses:
+\begin{itemize}
+	\item \textbf{Maximizing Sensitivity}: adjusting the gain of neural responses to stay within the dynamic range.
+	\item \textbf{Invariance}: discarding mean activation information and various irrelevant features
+	\item \textbf{Neural Decoding}: treating a population of neurons as a normalized probability distribution
+	\item \textbf{Stimuli Discrimination}: making discrimination easier for a linear classifier
+	\item \textbf{Max Pooling}: biased and winner-take-all competition
+	\item \textbf{Redundancy Reduction}: increasing the efficiency of neural representations by creating statistically independent activations.
+\end{itemize}
+Normalization is implemented in various circuits using various biophysical mechanisms, such as inhibition (polarization modulation), shunting inhibition (conductance modulation), and synaptic depression. Across many implementations, the overall computational scheme appears to rely on a ``summation field" and a ``suppression field," in which the activity of the summation field is divisively normalized according to the suppression field.
+
+
+\section{Action Selection}
+
+A theory put forth by \cite{daw2005uncertainty} discusses two complementary pathways for action selection. The first, shorter pathway involves a state-value look-up, hypothesized to use striatum. This is thought to correspond to model-free, value-based methods in reinforcement learning. The second, longer pathway involves explicit planning through evaluation of possible future outcomes, likely using prefrontal cortex. This is thought to correspond to model-based learning.

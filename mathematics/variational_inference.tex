@@ -1,4 +1,5 @@
 \chapter{Variational Inference}
+\label{chap: variational inference}
 
 \section{Inference as Optimization: Deriving the ELBO}
 
@@ -149,15 +150,15 @@ To parameterize the mappings, \cite{rezende2015variational} use transformations 
 Another class of normalizing flows is \textit{inverse auto-regressive flow (IAF)} \cite{kingma2016improved}. These transformations take inspiration from auto-regressive models, which factor joint probability distributions into a series of conditional distributions using the chain rule of probability.
 
 
-\section{Variational Inference in Dynamical Models}
+\section{Filtering Variational Inference}
 \label{sec: variational inference in dynamical models}
 
-We assume the dynamic directed latent variable model set-up given in Section \ref{sec: dynamic directed latent variable models}. We can bound the marginal log-likelihood of the observation sequence by introducing an approximate posterior distribution, $q(\mathbf{z}_{1:T} | \mathbf{x}_{1:T})$, then using Jensen's inequality to write
+We assume the dynamic directed latent variable model set-up given in Section \ref{sec: dynamical latent variable models}. We can bound the marginal log-likelihood of the observation sequence by introducing an approximate posterior distribution, $q(\mathbf{z}_{1:T} | \mathbf{x}_{1:T})$, then using Jensen's inequality to write
 \begin{equation}
     \log p(\mathbf{x}_{1:T}) \geq \mathbb{E}_{q(\mathbf{z}_{1:T} | \mathbf{x}_{1:T})} \left[ \log \frac{p(\mathbf{x}_{1:T} , \mathbf{z}_{1:T})}{q(\mathbf{z}_{1:T} | \mathbf{x}_{1:T})} \right] \equiv - \mathcal{F}_E,
     \label{eq: vi_1}
 \end{equation}
-where $\mathcal{F}_E$ is the total \textit{variational free-energy}. For now, we assume the generative model takes the form given by eq. \ref{eq: general dynamics model}, and the approximate posterior takes a similar form:
+where $\mathcal{F}_E$ is the total \textit{variational free-energy}. For now, we assume the generative model takes the form given by eq. \ref{eq: general dynamics model}, and the approximate posterior takes the form:
 \begin{equation}
     q(\mathbf{z}_{1:T} | \mathbf{x}_{1:T}) = \prod_{t=1}^T q(\mathbf{z}_t | \mathbf{x}_{1:t} , \mathbf{z}_{1:t-1}).
     \label{eq: approx post form}

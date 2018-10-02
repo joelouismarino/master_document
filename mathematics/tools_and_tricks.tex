@@ -1,0 +1,54 @@
+\chapter{Mathematical Tools \& Tricks}
+\label{chap: math tools and tricks}
+
+\section{Differentiation}
+\label{sec: differentiation}
+
+Differentiation is \textit{the} core mathematical operation required for gradient-based optimization, which arises in both learning and inference procedures. However, standard differentiation tools are not adequate for handling functions containing non-differentiable elements, such as discontinuities and/or stochastic computations. In these cases, we can rely on a variety of techniques to \textit{estimate} derivatives. Some recent work in differentiation: Gumbel-Softmax \cite{jang2016categorical}, Concrete \cite{maddison2016concrete}, REBAR \cite{tucker2017rebar}, RELAX \cite{grathwohl2017backpropagation}. See also \cite{schulman2015gradient} for an overview of gradient estimation in stochastic computation graphs.
+
+\subsection{Score Function Estimator}
+\label{subsec: score function estimator}
+
+[From Shakir Mohamed's \href{http://blog.shakirm.com/2015/11/machine-learning-trick-of-the-day-5-log-derivative-trick/}{blog}.] The score function estimator (also called REINFORCE \cite{williams1992simple}) can be used to estimate gradients of the following form:
+\begin{equation}
+    \nabla_\theta \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ f(\mathbf{z}) \right],
+    \nonumber
+\end{equation}
+in which $\theta$ are the parameters of a parametric distribution, $p(\mathbf{z}; \theta)$. Often, we estimate the expectation through sampling $\mathbf{z} \sim p(\mathbf{z}; \theta)$, which is non-differentiable w.r.t $\theta$. Gradients of this form occur, for instance, in variational inference (Chapter \ref{chap: variational inference}), where $\theta$ are the parameters of the approximate posterior, and policy gradient methods in reinforcement learning (Section \ref{sec: policy search methods}), where $\theta$ are the parameters of the policy. To estimate this gradient, the score function estimator employs the \textbf{log-derivative trick}:
+\begin{equation}
+    \nabla_\theta \log p(\mathbf{z}; \theta) = \frac{\nabla_\theta p(\mathbf{z}; \theta)}{p(\mathbf{z}; \theta)}.
+\end{equation}
+The expression $\nabla_\theta \log p(\mathbf{z}; \theta)$ is referred to as the \textit{score function}, and the expression on the right is referred to as the \textit{score ratio}. Note that the expected value of the score function is zero:
+\begin{equation}
+\begin{split}
+    \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ \nabla_\theta \log p(\mathbf{z}; \theta) \right] & = \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ \frac{\nabla_\theta p(\mathbf{z}; \theta)}{p(\mathbf{z}; \theta)} \right] \\
+    & = \int p(\mathbf{z}; \theta) \frac{\nabla_\theta p(\mathbf{z}; \theta)}{p(\mathbf{z}; \theta)} d \mathbf{z} \\
+    & = \nabla_\theta \int p(\mathbf{z}; \theta) d \mathbf{z} \\
+    & = \nabla_\theta 1 = 0.
+\end{split}
+\end{equation}
+In the third line, we have exchanged differentiation and integration, which we assume is valid. The fact that the expected value is zero allows us to subtract any terms from the score function that have zero expectation while leaving the expected score unaffected. This technique is referred to as control variates (see below). The variance of the score function is the Fisher information:
+\begin{equation}
+    \mathbb{V} \left[ \nabla_\theta \log p(\mathbf{z}; \theta) \right] = \mathcal{I} (\theta) \equiv \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ \nabla_\theta \log p(\mathbf{z}; \theta) \nabla_\theta \log p(\mathbf{z}; \theta)^\intercal \right].
+\end{equation}
+Now, we can use the log-derivative trick to estimate the gradient from the original expression.
+\begin{equation}
+\begin{split}
+    \nabla_\theta \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ f(\mathbf{z}) \right] & = \nabla_\theta \int p(\mathbf{z}; \theta) f(\mathbf{z}) d \mathbf{z} \\
+    & = \int \nabla_\theta p(\mathbf{z}; \theta) f(\mathbf{z}) d \mathbf{z} \\
+    & = \int \frac{p(\mathbf{z}; \theta)}{p(\mathbf{z}; \theta)} \nabla_\theta p(\mathbf{z}; \theta) f(\mathbf{z}) d \mathbf{z} \\
+    & = \int p(\mathbf{z}; \theta) \nabla_\theta \log p(\mathbf{z}; \theta) f(\mathbf{z}) d \mathbf{z} \\
+    & = \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ f(\mathbf{z}) \nabla_\theta \log p(\mathbf{z}; \theta) \right] \\
+    & \approx \frac{1}{S} \sum_{s=1}^S f(\mathbf{z}^{(s)}) \nabla_\theta \log p(\mathbf{z}^{(s)}; \theta),
+\end{split}
+\end{equation}
+where, in the last line, $\mathbf{z}^{(s)} \sim p(\mathbf{z}; \theta)$. The log-derivative trick was used in transitioning from the third to the fourth line. Note that $f(\mathbf{z})$ does not need to be differentiable. That is, as long as we can evaluate $f(\mathbf{z})$ for a given value of $\mathbf{z}$, we can effectively treat it as a black box (see, e.g. black box variational inference (BBVI) \cite{ranganath2014black}). This is a useful quality, as it allows us to estimate gradients using, for example, reward functions in reinforcement learning. The score function estimator allows us to change a gradient of an expectation into an expectation of a gradient. This estimator is unbiased, but tends to suffer from high variance. To reduce the variance, we can use a \textit{control variate}, $\lambda$, a function with zero mean:
+\begin{equation}
+    \nabla_\theta \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ f(\mathbf{z}) \right] =  \mathbb{E}_{p(\mathbf{z}; \theta)} \left[ \left( f(\mathbf{z}) - \lambda \right) \nabla_\theta \log p(\mathbf{z}; \theta) \right].
+\end{equation}
+In reinforcement learning, control variates are commonly referred to as \textit{baselines}.
+
+
+\subsection{Pathwise Derivative Estimator}
+
+With the score function estimator (Section \ref{subsec: score function estimator}), we saw that we could estimate the gradient of an expectation of some function w.r.t. the parameters of the expectation distribution. We could effectively treat the function within the expectation as a black box, however, the resulting gradient estimator suffered from high variance. In other cases, we may have direct access to the function $f(\mathbf{z})$, and we may be able to reparameterize the sampling procedure in terms of simpler distributions, which do not depend on the parameters, $\theta$. In such cases, we can employ the pathwise derivative estimator, also known as the \textit{reparameterization trick} \cite{rezende2014stochastic, kingma2013auto}.

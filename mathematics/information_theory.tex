@@ -1,10 +1,13 @@
 \chapter{Information Theory}
+\label{chap: information theory}
 
-\section{What is information?}
+\section{Introduction}
 
 Information is a reduction in uncertainty.
 
 \section{Basic Concepts}
+
+\subsection{Entropy}
 
 \textbf{Entropy} is a measure of the uncertainty of a random variable. It tends to agree with the notion of information. Let $X$ be a random variable, with alphabet $\mathcal{X}$ and probability mass function $p(x) = \text{Pr} (X = x)$, with $x \in \mathcal{X}$. The entropy of $X$ is defined as
 
@@ -49,6 +52,8 @@ The \textbf{joint entropy} of multiple random variables is defined similarly:
 	H(X) - H(X | Y) = H(Y) - H(Y | X).
 \end{equation}
 
+\subsection{Relative Entropy or KL-Divergence}
+
 \textbf{Relative entropy} is a measure of the distance between two distributions. Put differently, it is the inefficiency of assuming the distribution of the data is $q(x)$ when the true distribution is $p(x)$. This is also referred to as the \textbf{Kullback-Leibler distance} or \textbf{divergence}.
 
 \begin{equation}
@@ -57,6 +62,8 @@ The \textbf{joint entropy} of multiple random variables is defined similarly:
 \end{equation}
 
 \noindent Note that if there is a value $x \in \mathcal{X}$ such that $p(x) > 0$ and $q(x) = 0$, then $D_{KL} = \infty$. KL divergence is non-negative and is only zero when $p(x) = q(x)$. It is not symmetric, so it is not a proper distance measure.
+
+\subsection{Mutual Information}
 
 \textbf{Mutual Information} is the amount of information that one random variable contains about another random variable. In other words, it is the reduction in the uncertainty of one random variable due to knowledge of the other. It is expressed as the relative entropy between the joint distribution $p(x, y)$ and the product of the marginals $p(x) p(y)$.
 

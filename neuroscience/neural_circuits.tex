@@ -1,13 +1,53 @@
-\chapter{Neuroscience}
+\chapter{Neural Circuits}
 
-\section{Neurons}
+Nervous systems are not merely a collection of neurons. Rather, neurons of many different varieties are arranged in specific neural \textit{circuits}, which form the large-scale structures outlined in Chapter \ref{chap: anatomy}. The circuit-level study of nervous systems offers a promising direction for understanding both the function and implementation of brain areas. Perhaps by understanding the basic design principles of \textit{canonical} circuits, we may be able to identify a core set of computational operations utilized by the brain.
 
-\section{Neural Circuits}
-
-\subsection{Retinal Circuits}
+The brain is made up of specialized areas, which interconnect in specific ways. Each area receives \textit{input fibers}, which form synapses on the cells within that area. The incoming signal, perhaps after some processing, is then sent to other areas via a set of neurons called \textit{principle, relay}, or \textit{projection} neurons. Other cells are only involved in the processing within the area and are instead referred to as \textit{intrinsic, local,} or \textit{inter-}neurons. 
 
 
-\subsection{Neocortical Circuits}
+\section{Circuit Motifs}
+
+\subsection{Mutual Inhibition}
+
+
+\subsection{Feedforward Inhibition}
+
+
+
+
+
+
+
+\section{Retinal Circuits}
+
+
+\section{Cerebellar Circuits}
+
+
+\section{Thalamocortical Circuits}
+
+Thalamus is the `relay' for cortical inputs. It is divided into (1) \textbf{first-order} and (2) \textbf{higher-order} nuclei. First-order nuclei receive inputs from sensory organs and project to primary sensory cortical areas. Higher-order nuclei receive inputs from cortex (specifically layer 5b) and project back to cortex. These circuits area shown in Figure \ref{fig: thalamocortical circuits}. Intriguingly, there are then at least two types of pathways within cortex: direct connections between cortical areas and indirect connections through thalamus. Furthermore, no connections have been identified between higher-order thalamic relay cells. Additionally, the cortical layer 5b cells that project down to higher-order thalamus have branching axons that also send information to sub-cortical motor centers.
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/neuroscience/thalamocortical_circuits.png}
+        \caption{ }
+        \label{fig: thalamocortical circuits}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/neuroscience/thalamus_branching_axons.png}
+        \caption{ }
+        \label{fig: thalamus branching axons}
+    \end{subfigure}
+    \caption{(\textbf{a}) Basic circuit diagram of first-order (left) and higher-order (center, right) thalamocortical circuits across multiple sensory modalities. (\textbf{b}) Cortical cells that project to thalamus often have branching axons that also project to sub-cortical motor centers. Reproduced from S. Murray Sherman.}
+\end{figure*}
+
+
+\section{Neocortical Circuits}
 
 A review of various experimental findings on cortical circuits is presented in \cite{harris2015neocortical}. While there are differences in cortical structure and activity across different areas and species, many cortical circuit properties are conserved. \cite{harris2015neocortical} therefore argues that these differences are \textit{quantitative} rather than \textit{qualitative}, arising from differences in gene expression and inputs. They refer to these slight differences on a main conserved architecture as \textit{serial homology}. The primary categorization of neocortical neurons is between excitatory cells (EC), which constitute roughly $80\%$ of neurons, and interneurons, which constitute the remaining $20\%$.  
 
@@ -59,26 +99,3 @@ Cortical interneurons are categorized into three classes based on gene expressio
 \end{itemize}
 Interneurons contain many subclasses, which inhibit various local ECs and other interneurons. These inhibitory circuits may mediate diverse control of cortical processing during behavior, at least partially contributing to the quantitative differences between cortical circuits that perform different computations, yet have similar qualitative architectures. 
 
-
-\section{Brain Structures}
-
-\section{Canonical Neural Computations}
-
-\subsection{Linear Weighting}
-
-
-\subsection{Exponentiation}
-
-
-\subsection{Normalization}
-
-\cite{carandini2012normalization} reviews various forms of normalization that appear in different brain areas and species. They define (divisive) normalization as \textit{the computation in which the responses of neurons are divided by a common factor that typically includes the summed activity of a pool of neurons}. They point to examples of normalization in olfactory pathways, retinal contrast adaptation, V1, MT, V4, IT, medial superior temporal area (MST), auditory cortex, and lateral intraparietal area (LIP). They also point to a role of normalization in mediating attentional mechanisms, such as winner-take-all competition. The authors offer a number of reasons for the ubiquity of normalization, i.e. possible uses:
-\begin{itemize}
-	\item \textbf{Maximizing Sensitivity}: adjusting the gain of neural responses to stay within the dynamic range.
-	\item \textbf{Invariance}: discarding mean activation information and various irrelevant features
-	\item \textbf{Neural Decoding}: treating a population of neurons as a normalized probability distribution
-	\item \textbf{Stimuli Discrimination}: making discrimination easier for a linear classifier
-	\item \textbf{Max Pooling}: biased and winner-take-all competition
-	\item \textbf{Redundancy Reduction}: increasing the efficiency of neural representations by creating statistically independent activations.
-\end{itemize}
-Normalization is implemented in various circuits using various biophysical mechanisms, such as inhibition (polarization modulation), shunting inhibition (conductance modulation), and synaptic depression. Across many implementations, the overall computational scheme appears to rely on a ``summation field" and a ``suppression field," in which the activity of the summation field is divisively normalized according to the suppression field.
